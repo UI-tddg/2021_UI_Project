@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:padding="30dp"
+    android:background="#FFF1EF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/spell_background">
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="73dp"
+            android:layout_height="75dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/star"
+            android:layout_gravity="center_horizontal|top"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="underwater"
+                android:textSize="30dp"
+                android:layout_marginBottom="40dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/meaning_button"
+                android:textSize="17dp"
+                android:text="사과"
+                android:layout_margin="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/meaning_button"
+                android:textSize="17dp"
+                android:text="물 속의"
+                android:layout_margin="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/meaning_button"
+                android:textSize="17dp"
+                android:text="자몽"
+                android:layout_margin="10dp"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/meaning_button"
+                android:textSize="17dp"
+                android:text="유자"
+                android:layout_margin="10dp"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|right"
+                android:background="@android:color/transparent"
+                android:src="@drawable/next"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
