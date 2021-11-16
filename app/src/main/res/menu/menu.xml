@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/action_one"
+        android:icon="@drawable/ic_baseline_share_24"
+        app:showAsAction="always"
+        android:title="Item One"/>
+
+    <item
+        android:id="@+id/action_two"
+        android:title="Day 단어 리스트"/>
+
+    <item
+        android:id="@+id/action_three"
+        android:title="오늘의 단어 리스트"/>
+    <item
+        android:id="@+id/action_four"
+        android:title="틀린 단어 리스트"/>
+    <item
+        android:id="@+id/action_five"
+        android:title="중요 단어 리스트"/>
+
+
+</menu>
