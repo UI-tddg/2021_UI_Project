@@ -53,7 +53,7 @@ public class ListView extends AppCompatActivity {
         match_btn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MatchingGame_Start.class);
+                Intent intent = new Intent(getApplicationContext(), MatchingGame.class);
                 startActivity(intent);
             }
         });
