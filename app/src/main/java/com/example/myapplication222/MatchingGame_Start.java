@@ -14,9 +14,9 @@ public class MatchingGame_Start extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.matchinggame_start);
 
+        //매칭게임 start 버튼 -> MatchingGame 페이지
         Button mg_start = (Button) findViewById(R.id.mg_start_btn);
         mg_start.setOnClickListener(new View.OnClickListener() {
-
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), MatchingGame.class);
                 startActivity(intent);

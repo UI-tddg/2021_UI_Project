@@ -48,12 +48,12 @@ public class ListView extends AppCompatActivity {
             }
         });
 
-        //매칭게임 버튼 클릭시 액티비티 전환
+        //매칭게임 버튼 클릭시 매칭 게임 설명 화면 액티비티 전환
         Button match_btn = (Button) findViewById(R.id.match_btn);
         match_btn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MatchingGame.class);
+                Intent intent = new Intent(getApplicationContext(), MatchingGame_Start.class);
                 startActivity(intent);
             }
         });
