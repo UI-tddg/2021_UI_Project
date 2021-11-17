@@ -15,7 +15,10 @@ public class ListView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
 
+
         //단어 암기 버튼 클릭시 액티비티 전환
+
+        //단어 암기 버튼 클릭시 액티비티 전환 서유닝~~~~~
         Button mem_btn = (Button) findViewById(R.id.mem_btn);
         mem_btn.setOnClickListener(new View.OnClickListener() {
 
