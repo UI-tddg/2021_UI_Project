@@ -15,7 +15,7 @@ public class ListView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
 
-        //단어 암기 버튼 클릭시 액티비티 전환
+        //단어 암기 버튼 클릭시 액티비티 전환 뀨
         Button mem_btn = (Button) findViewById(R.id.mem_btn);
         mem_btn.setOnClickListener(new View.OnClickListener() {
 
@@ -50,7 +50,7 @@ public class ListView extends AppCompatActivity {
         match_btn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MatchingGame.class);
+                Intent intent = new Intent(getApplicationContext(), MatchingGame_Start.class);
                 startActivity(intent);
             }
         });
