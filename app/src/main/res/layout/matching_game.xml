@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f18c8e">
+
+    <TextView
+        android:layout_width="150dp"
+        android:layout_height="70dp"
+        android:text="Day 1\nMatching Game!"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|left"
+        android:layout_marginLeft="47dp"
+        android:layout_marginBottom="200dp"
+        android:textColor="@color/white"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|right"
+        android:text="Score"
+        android:textSize="16dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_marginTop="70dp"
+        android:layout_marginRight="50dp" />
+
+    <TableLayout
+        android:layout_width="400dp"
+        android:layout_height="465dp"
+        android:layout_gravity="bottom|center"
+        android:stretchColumns="0,1">
+        <TableRow>
+            <Button
+                android:padding="30dp"
+                android:text="word2"
+                android:background="@drawable/matching_btn_layout"
+                style="@style/Widget.AppCompat.Button.Borderless">
+            </Button>
+            <Button
+                android:padding="30dp"
+                android:text="mean2"
+                android:background="@drawable/matching_btn_layout"
+                style="@style/Widget.AppCompat.Button.Borderless">
+            </Button>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:padding="30dp"
+                android:text="word2"
+                android:background="@drawable/matching_btn_layout"
+                style="@style/Widget.AppCompat.Button.Borderless">
+            </Button>
+            <Button
+                android:padding="30dp"
+                android:text="mean2"
+                android:background="@drawable/matching_btn_layout"
+                style="@style/Widget.AppCompat.Button.Borderless">
+            </Button>
+        </TableRow><TableRow>
+        <Button
+            android:padding="30dp"
+            android:text="word2"
+            android:background="@drawable/matching_btn_layout"
+            style="@style/Widget.AppCompat.Button.Borderless">
+        </Button>
+        <Button
+            android:padding="30dp"
+            android:text="mean2"
+            android:background="@drawable/matching_btn_layout"
+            style="@style/Widget.AppCompat.Button.Borderless">
+        </Button>
+    </TableRow>
+        <TableRow>
+            <Button
+                android:padding="30dp"
+                android:text="word2"
+                android:background="@drawable/matching_btn_layout"
+                style="@style/Widget.AppCompat.Button.Borderless">
+            </Button>
+            <Button
+                android:padding="30dp"
+                android:text="mean2"
+                android:background="@drawable/matching_btn_layout"
+                style="@style/Widget.AppCompat.Button.Borderless">
+            </Button>
+        </TableRow>
+        <TableRow>
+            <Button
+                android:padding="30dp"
+                android:text="word2"
+                android:background="@drawable/matching_btn_layout"
+                style="@style/Widget.AppCompat.Button.Borderless">
+            </Button>
+            <Button
+                android:padding="30dp"
+                android:text="mean2"
+                android:background="@drawable/matching_btn_layout"
+                style="@style/Widget.AppCompat.Button.Borderless">
+            </Button>
+        </TableRow>
+    </TableLayout>
+
+
+</FrameLayout>

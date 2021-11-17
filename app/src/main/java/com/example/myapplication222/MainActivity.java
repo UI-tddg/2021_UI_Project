@@ -1,8 +1,11 @@
 package com.example.myapplication222;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +17,36 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setSubtitle("수능 실전편");
+
+        //day1 버튼 클릭시 액티비티 전환
+        Button day1_btn = (Button) findViewById(R.id.day1);
+        day1_btn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ListView.class);
+                startActivity(intent);
+            }
+        });
+
+        //day2 버튼 클릭시 액티비티 전환
+        Button day2_btn = (Button) findViewById(R.id.day2);
+        day2_btn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ListView.class);
+                startActivity(intent);
+            }
+        });
+
+        //day3 버튼 클릭시 액티비티 전환
+        Button day3_btn = (Button) findViewById(R.id.day3);
+        day3_btn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), ListView.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
