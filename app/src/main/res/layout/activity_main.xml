@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/day1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -19,6 +20,7 @@
         android:gravity="center|left" />
 
     <Button
+        android:id="@+id/day2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
@@ -33,6 +35,7 @@
         android:gravity="center|left" />
 
     <Button
+        android:id="@+id/day3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"

@@ -13,7 +13,7 @@
         android:background="@drawable/memorize_background">
 
         <ImageButton
-            android:id="@+id/starButton"
+            android:id="@+id/M_starButton"
             android:layout_width="73dp"
             android:layout_height="75dp"
             android:background="@android:color/transparent"
@@ -21,7 +21,7 @@
             android:layout_gravity="center_horizontal|top"/>
 
         <ImageButton
-            android:id="@+id/colorStar"
+            android:id="@+id/M_colorStar"
             android:layout_width="73dp"
             android:layout_height="75dp"
             android:background="@android:color/transparent"
@@ -60,15 +60,15 @@
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/touchButton"
-                    android:background="#f18c8e"
+                    android:id="@+id/M_touchButton"
+                    android:background="@color/pink"
                     android:text="TOUCH"
                     android:textSize="24dp"/>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:id="@+id/showMeaning"
+                    android:id="@+id/M_showMeaning"
                     android:text="1. (숨을 쉴 때 입에서 나오는) 입김\n2. (한 번 들이쉬는) 숨\n3. 조금; 기"
                     android:textStyle="bold"
                     android:gravity="center"/>

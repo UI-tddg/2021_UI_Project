@@ -7,7 +7,7 @@
     android:background="#FFF1EF">
 
     <Button
-        android:id="@+id/english"
+        android:id="@+id/spell_btn"
         android:layout_width="142dp"
         android:layout_height="130dp"
         android:backgroundTint="@color/white"
@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <Button
-        android:id="@+id/meaning"
+        android:id="@+id/mean_btn"
         android:layout_width="142dp"
         android:layout_height="130dp"
         android:backgroundTint="#FFFFFF"
