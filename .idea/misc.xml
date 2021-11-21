@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bsy49/AndroidStudioProjects/UI_project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2175925925925926" />
+        <entry key="..\:/Users/bsy49/AndroidStudioProjects/UI_project/app/src/main/res/drawable/main_button_custom.xml" value="0.2175925925925926" />
         <entry key="..\:/Users/bsy49/AndroidStudioProjects/UI_project/app/src/main/res/drawable/matching_btn_layout.xml" value="0.1046875" />
         <entry key="..\:/Users/bsy49/AndroidStudioProjects/UI_project/app/src/main/res/drawable/start_splash.xml" value="0.20833333333333334" />
         <entry key="..\:/Users/bsy49/AndroidStudioProjects/UI_project/app/src/main/res/layout/list_view.xml" value="0.22282608695652173" />
