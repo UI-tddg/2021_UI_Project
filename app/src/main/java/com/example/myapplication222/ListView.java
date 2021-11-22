@@ -11,13 +11,15 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.io.File;
+import java.io.FileOutputStream;
+
 public class ListView extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
-
 
         //단어 암기 버튼 클릭시 액티비티 전환
         Button mem_btn = (Button) findViewById(R.id.mem_btn);
@@ -59,4 +61,5 @@ public class ListView extends AppCompatActivity {
             }
         });
     }
+
 }

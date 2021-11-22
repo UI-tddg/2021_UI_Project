@@ -1,0 +1,60 @@
+subjective    |	주관적인   	|	0    |	0    |	1    |
+participate    |	참여하다	  	|	0    |	0    |	1    |
+routine	|   	일과	  	|	0    |	0    |	1    |
+surround	|	둘러싸다	  	|	0     |	0    |	1    |
+overcome|	극복하다	  	|	0    |	0    |	1    |
+applaud	|	박수갈채하다  	|	0    |	0    |	1    |
+prove	|	증명하다	  	|	0    |	0    |	1    |
+likewise	|	마찬가지로 	|	0    |	0    |	1    |
+graduate	|	졸업하다		|	0    |	0    |	1    |
+evidence	|	증거, 근거  	|	0    |	0    |	1    |
+vast	|	광대한, 막대한  	|	0    |	0    |	1    |
+revenge	|	복수, 복수하다  	|	0    |	0    |	1    |
+purpose	|	목적, 의도  	|	0    |	0    |	1    |
+yearn	|	갈망하다, 동경하다 |	0    |	0    |	1    |
+discern	|	알아차리다  	|	0    |	0    |	1    |
+alleviate	|	완화하다		|	0    |	0    |	1    |
+eventually  |	결국		|	0    |	0    |	1    |
+bury	|	묻다, 매장하다 	|	0    |	0    |	1    |
+sole	|	단 하나의	    	|	0    |	0    |	1    |
+restrict	|	제한하다	  	|	0    |	0    |	1    |
+liberate	|	해방시키다  	|	0    |	0    |	2    |
+grab	|	움켜쥐다	  	|	0    |	0    |	2    |
+abrupt	|	돌연한		|	0    |	0    |	2    |
+exotic	|	외국의, 이국적인  	|	0    |	0    |	2    |
+govern	|	통치하다, 지배하다|	0    |	0    |	2    |
+frugal	|	참여하다		|	0    |	0    |	2    |
+vocation	|	절약하는, 소박한	|	0    |	0    |	2    |
+vacation	|	방학, 휴가를 보내다 |	0    |	0    |	2    |
+fluctuate	|	변동되다		|	0    |	0    |	2    |
+stabilize	|	안정되다		|	0    |	0    |	2    |
+arrest	|	체포하다, 체포	|	0    |	0    |	2    |
+retire	|	퇴직하다		|	0    |	0    |	2    |
+organize	|	준비하다		|	0    |	0    |	2    |
+famine	|	기근, 대부족	|	0    |	0    |	2    |
+relate	|	관련이 있다	|	0    |	0    |	2    |
+disclose	|	밝히다, 폭로하다	|	0    |	0    |	2    |
+valid	|	유효한		|	0    |	0    |	2    |
+supreme	|	최고의, 대단한	|	0    |	0    |	2    |
+retain	|	유지하다		|	0    |	0    |	2    |
+proper	|	적절한, 알맞은	|	0    |	0    |	2    |
+panic	|	공포에 질리다	|	0    |	0    |	3    |
+legend	|	전설; 전설적인 인물|	0    |	0    |	3    |
+agitated	|	불안해하는, 동요된	|	0    |	0    |	3    |
+opposite	|	정반대(의 것)	|	0    |	0    |	3    |
+arise	|	발생하다, 일어나다	|	0    |	0    |	3    |
+respond	|	유지하다		|	0    |	0    |	3    |
+ordinary	|	유지하다		|	0    |	0    |	3    |
+conclude	|	유지하다		|	0    |	0    |	3    |
+noble	|	고결한, 고상한	|	0    |	0    |	3    |
+tribal	|	부족의, 종족의	|	0    |	0    |	3    |
+agency	|	대행사, 대리점	|	0    |	0    |	3    |
+locate	|	~의 위치를 찾아내다|	0    |	0    |	3    |
+adjourn	|	(회의를) 중단하다, 휴정하다|	0    |	0    |	3    |
+scream	|	비명을 지르다, 소리치다|	0    |	0    |	3    |
+falsify	|	위조하다, 변조하다	|	0    |	0    |	3    |
+vague,	|	애매한, (형체가) 희미한|	0    |	0    |	3    |
+demand	|	요구하다		|	0    |	0    |	3    |
+supply	|	공급하다, 제공하다	|	0    |	0    |	3    |
+quantity	|	양, 수량		|	0    |	0    |	3    |
+quality	|	질, 양질		|	0    |	0    |	3    |

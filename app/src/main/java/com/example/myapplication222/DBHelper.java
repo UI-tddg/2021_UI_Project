@@ -7,20 +7,28 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DBHelper extends SQLiteOpenHelper {
 
+    public static final int DATABASE_VERSION =1;
 
     public DBHelper(Context context){
-        super(context,"/sdcard/Download/voca.db", null, 1);
+        super(context,"vocadb", null,DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db){
+        String vocadb="create table tb_voca("+
+                "_id integer primary key autoincrement,"+  //id값 저절로 생성
+                "eng, " +  //영단어
+                "kor, " +  //뜻
+                "star, " +  //중요단어
+                "nope ) ";  //틀린단어 체크
 
+        db.execSQL(vocadb);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion){
-        if(newVersion==1){
-            db.execSQL("drop table voca.db");
+        if(newVersion==DATABASE_VERSION){
+            db.execSQL("drop table voca");
             onCreate(db);
         }
     }
