@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION =1;
+    public String TABLE_NAME = "tb_voca";
 
     public DBHelper(Context context){
         super(context,"vocadb", null,DATABASE_VERSION);
@@ -15,12 +16,13 @@ public class DBHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db){
-        String vocadb="create table tb_voca("+
-                "_id integer primary key autoincrement,"+  //id값 저절로 생성
+        String vocadb="create table "+ TABLE_NAME+
+                "(_id integer primary key autoincrement,"+  //id값 저절로 생성
                 "eng, " +  //영단어
                 "kor, " +  //뜻
-                "star, " +  //중요단어
-                "nope ) ";  //틀린단어 체크
+                "day integer, " +  //day
+                "star boolean, " +  //중요단어
+                "nope boolean)";  //틀린단어 체크
 
         db.execSQL(vocadb);
     }
