@@ -17,12 +17,12 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db){
         String vocadb="create table "+ TABLE_NAME+
-                "(_id integer primary key autoincrement,"+  //id값 저절로 생성
-                "eng, " +  //영단어
-                "kor, " +  //뜻
+                "(_id integer primary key autoincrement, "+  //id값 저절로 생성
+                "eng varchar(10), " +  //영단어
+                "kor varchar(10), " +  //뜻
                 "day integer, " +  //day
-                "star boolean, " +  //중요단어
-                "nope boolean)";  //틀린단어 체크
+                "star interger, " +  //중요단어
+                "nope integer)";  //틀린단어 체크
 
         db.execSQL(vocadb);
     }
