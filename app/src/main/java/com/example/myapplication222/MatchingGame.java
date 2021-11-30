@@ -26,12 +26,10 @@ public class MatchingGame extends AppCompatActivity {
 
                 timer.setText("0" + Integer.toString(num2) + " : " + num3);
             }
-
             @Override
             public void onFinish() {
                 timer.setText("00 : 00");
             }
         }.start();
     }
-
 }

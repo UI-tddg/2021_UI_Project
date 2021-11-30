@@ -14,8 +14,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -81,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from tb_voca", null);
         while(cursor.moveToNext()){
-            Log.d("cursor", cursor.getString(1));
+            Log.d(cursor.getString(1), cursor.getString(2));
         }
     }
 
@@ -134,10 +132,16 @@ public class MainActivity extends AppCompatActivity {
     private void setDB(){
         DBHelper helper= new DBHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
+//        Cursor cursor = db.rawQuery("select * from tb_voca",null);
+//        cursor.moveToFirst();
+//        if(cursor.getString(1)=="subjective"){
+//            cursor.close();
+//            return;
+//        }
         for(int i=0; i<60; i++) {  //단어 60개라 60개 썼다.
             db.execSQL("insert into tb_voca (eng, kor, day, star, nope) values('"
                     + arrayList.get(i*3) + "', '"  //eng
-                    + arrayList.get(i*3+1) + "', '"  //kor 한글이 깨져서 에러가 뜨나?
+                    + arrayList.get(i*3+1) + "', '"  //kor
                     + Integer.parseInt(arrayList.get(i*3+2)) + "', '" //day
                     + 0 + "', '" + 0 + "')"); //star랑 nope
         }
