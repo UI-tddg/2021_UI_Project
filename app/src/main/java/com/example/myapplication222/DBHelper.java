@@ -24,7 +24,6 @@ public class DBHelper extends SQLiteOpenHelper {
                 "day integer, " +  //day
                 "star interger, " +  //중요단어
                 "nope integer)";  //틀린단어 체크
-
         db.execSQL(vocadb);
     }
 

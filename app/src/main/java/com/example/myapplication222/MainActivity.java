@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        Cursor cursor = db.rawQuery("select * from tb_voca",null);
 //        cursor.moveToFirst();
-//        if(cursor.getString(1)=="subjective"){
+//        if(cursor.getString(1)){
 //            cursor.close();
 //            return;
 //        }
