@@ -7,7 +7,7 @@
     android:background="#FFF1EF">
 
     <Button
-        android:id="@+id/ms_word_btn"
+        android:id="@+id/sellect_right_btn"
         android:layout_width="142dp"
         android:layout_height="130dp"
         android:backgroundTint="@color/white"
@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <Button
-        android:id="@+id/ms_meaning_btn"
+        android:id="@+id/sellect_left_btn"
         android:layout_width="142dp"
         android:layout_height="130dp"
         android:backgroundTint="#FFFFFF"
@@ -40,6 +40,7 @@
         app:layout_constraintVertical_bias="0.55" />
 
     <TextView
+        android:id="@+id/sellect_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"

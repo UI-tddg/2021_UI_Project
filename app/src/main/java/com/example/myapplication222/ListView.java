@@ -47,7 +47,7 @@ public class ListView extends AppCompatActivity {
         retest_btn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), TestSellect.class);
+                Intent intent = new Intent(getApplicationContext(), RetestSellect.class);
                 startActivity(intent);
             }
         });
