@@ -1,60 +1,60 @@
-subjective-주관적인-1
-participate-참여하다-1
-routine-일과-1
-surround-둘러싸다-1
-overcome-극복하다-1
-applaud-박수갈채하다-1
-prove-증명하다-1
-likewise-마찬가지로-1
-graduate-졸업하다	-1
-evidence-증거, 근거-1
-vast-광대한, 막대한-1
-revenge-복수, 복수하다-1
-purpose-목적, 의도-1
-yearn-갈망하다, 동경하다-1
-discern-알아차리다-1
-alleviate-완화하다-1
-eventually-결국-1
-bury-묻다, 매장하다-1
-sole-단 하나의-1
-restrict-제한하다-1
-liberate-해방시키다-2
-grab-움켜쥐다-2
-abrupt-돌연한-2
-exotic-외국의, 이국적인-2
-govern-통치하다, 지배하다-2
-frugal-참여하다-2
-vocation-절약하는, 소박한-2
-vacation-방학, 휴가를 보내다-2
-fluctuate-변동되다-2
-stabilize-안정되다-2
-arrest-체포하다, 체포-2
-retire-퇴직하다-2
-organize-준비하다-2
-famine-기근, 대부족-2
-relate-관련이 있다-2
-disclose-밝히다, 폭로하다-2
-valid-유효한-2
-supreme-최고의, 대단한-2
-retain-유지하다-2
-proper-적절한, 알맞은-2
-panic-공포에 질리다-3
-legend-전설; 전설적인 인물-3
-agitated-불안해하는, 동요된-3
-opposite-정반대(의 것)-3
-arise-발생하다, 일어나다-3
-respond-유지하다-3
-ordinary-유지하다-3
-conclude-유지하다-3
-noble-고결한, 고상한-3
-tribal-부족의, 종족의-3
-agency-대행사, 대리점-3
-locate-~의 위치를 찾아내다-3
-adjourn-(회의를) 중단하다, 휴정하다-3
-scream-비명을 지르다, 소리치다-3
-falsify-위조하다, 변조하다-3
-vague-애매한, (형체가) 희미한-3
-demand-요구하다-3
-supply-공급하다, 제공하다-3
-quantity-양, 수량-3
-quality-질, 양질-3
+subjective-주관적인-[səbˈdʒektɪv]-1
+participate-참여하다-[pɑːr│tɪsɪpeɪt]-1
+routine-일과-[ruːˈtiːn]-1
+surround-둘러싸다-[səˈraʊnd]-1
+overcome-극복하다-[oʊvərˈkʌm]-1
+applaud-박수갈채하다-[əˈplɔːd]-1
+prove-증명하다-[pruːv]-1
+likewise-마찬가지로-[ˈlaɪkwaɪz]-1
+graduate-졸업하다-[ˈɡrædʒuət]-1
+evidence-증거, 근거-[ˈevɪdəns]-1
+vast-광대한, 막대한-[væst]-1
+revenge-복수, 복수하다-[rɪˈvendʒ]-1
+purpose-목적, 의도-[ˈpɜːrpəs]-1
+yearn-갈망하다, 동경하다-[jɜːrn]-1
+discern-알아차리다-[dɪ│sɜːrn]-1
+alleviate-완화하다-[əˈliːvieɪt]-1
+eventually-결국-[ɪˈventʃuəli]-1
+bury-묻다, 매장하다-[ˈberi]-1
+sole-단 하나의-[soʊl]-1
+restrict-제한하다-[rɪˈstrɪkt]-1
+liberate-해방시키다-[ˈlɪbəreɪt]-2
+grab-움켜쥐다-[ɡræb]-2
+abrupt-돌연한-[əˈbrʌpt]-2
+exotic-외국의, 이국적인-[ɪɡˈzɑːtɪk]-2
+govern-통치하다, 지배하다-[ˈɡʌvərn]-2
+frugal-참여하다-[ˈfruːɡl]-2
+vocation-절약하는, 소박한-[voʊ│keɪʃn]-2
+vacation-방학, 휴가를 보내다-[və│keɪʃn]-2
+fluctuate-변동되다-[ˈflʌktʃueɪt]-2
+stabilize-안정되다-[ˈsteɪbəlaɪz]-2
+arrest-체포하다, 체포-[əˈrest]-2
+retire-퇴직하다-[rɪˈtaɪə(r)]-2
+organize-준비하다-[│ɔːrɡənaɪz]-2
+famine-기근, 대부족-[ˈfæmɪn]-2
+relate-관련이 있다-[rɪˈleɪt]-2
+disclose-밝히다, 폭로하다-[dɪs│kloʊz]-2
+valid-유효한-[ˈvælɪd]-2
+supreme-최고의, 대단한-[suː│priːm]-2
+retain-유지하다-[rɪˈteɪn]-2
+proper-적절한, 알맞은-[│prɑːpə(r)]-2
+panic-공포에 질리다-[ˈpænɪk]-3
+legend-전설; 전설적인 인물-[ˈledʒənd]-3
+agitated-불안해하는, 동요된-[ˈædʒɪteɪtɪd]-3
+opposite-정반대(의 것)-[│ɑːpəzət]-3
+arise-발생하다, 일어나다-[əˈraɪz]-3
+respond-대답하다-[rɪˈspɑːnd]-3
+ordinary-보통의, 일상적인, 평범한-[ˈɔːrdneri]-3
+conclude-결론[판단]을 내리다-[kənˈkluːd]-3
+noble-고결한, 고상한-[ˈnoʊbl]-3
+tribal-부족의, 종족의-[ˈtraɪbl]-3
+agency-대행사, 대리점-[ˈeɪdʒənsi]-3
+locate-~의 위치를 찾아내다-[ˈloʊkeɪt]-3
+adjourn-(회의를) 중단하다, 휴정하다-[əˈdʒɜːrn]-3
+scream-비명을 지르다, 소리치다-[skriːm]-3
+falsify-위조하다, 변조하다-[ˈfɔːlsɪfaɪ]-3
+vague-애매한, (형체가) 희미한-[veɪɡ]-3
+demand-요구하다-[dɪˈmænd]-3
+supply-공급하다, 제공하다-[səˈplaɪ]-3
+quantity-양, 수량-[│kwɑːntəti]-3
+quality-질, 양질-[│kwɑːləti]-3

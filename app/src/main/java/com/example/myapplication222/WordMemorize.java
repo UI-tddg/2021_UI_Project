@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -18,6 +19,7 @@ public class WordMemorize extends AppCompatActivity implements View.OnClickListe
     private ImageButton starButton;
     private ImageButton nextBtn;
     private ImageButton prevBtn;
+    private TextView speaker;
     private TextView korText;
     private int current=0;  //현재 출력되고 있는 배열의 번호
 
@@ -44,12 +46,14 @@ public class WordMemorize extends AppCompatActivity implements View.OnClickListe
         prevBtn =(ImageButton)findViewById(R.id.mean_prev_btn);
         prevBtn.setOnClickListener(this);
 
+        speaker=(TextView)findViewById(R.id.speaker);
         korText = (TextView)findViewById(R.id.mean_kor_text);
 
-
+        Log.d("Hello", ListView.arrayDay[current][3]);
         //초기값 세팅
         korText.setText(ListView.arrayDay[current][1]);
         showWord.setText(ListView.arrayDay[current][2]);
+        speaker.setText(ListView.arrayDay[current][3]);
         current++;
     }
 
@@ -75,6 +79,7 @@ public class WordMemorize extends AppCompatActivity implements View.OnClickListe
                 touchButton.setVisibility(View.VISIBLE);
                 korText.setText(ListView.arrayDay[current][1]);
                 showWord.setText(ListView.arrayDay[current][2]);
+                speaker.setText(ListView.arrayDay[current][3]);
                 current++;
             }
         }
@@ -88,6 +93,7 @@ public class WordMemorize extends AppCompatActivity implements View.OnClickListe
                 touchButton.setVisibility(View.VISIBLE);
                 korText.setText(ListView.arrayDay[current][1]);
                 showWord.setText(ListView.arrayDay[current][2]);
+                speaker.setText(ListView.arrayDay[current][3]);
                 current++;
             }
         }

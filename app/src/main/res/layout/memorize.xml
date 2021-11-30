@@ -45,10 +45,10 @@ android:background="#FFF1EF">
             android:textSize="30dp"
             android:layout_marginBottom="10dp"/>
 
-        <ImageButton
+        <TextView
+            android:id="@+id/speaker"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/speaker"
             android:background="@android:color/transparent"
             android:layout_marginBottom="30dp"/>
 
@@ -62,7 +62,7 @@ android:background="#FFF1EF">
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/touchButton"
-                android:background="#f18c8e"
+                android:background="@color/pink"
                 android:text="TOUCH"
                 android:textSize="24dp"/>
 
@@ -73,6 +73,13 @@ android:background="#FFF1EF">
                 android:text="breath"
                 android:textSize="30dp"
                 android:textStyle="bold"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/showWord_speaker"
+                android:textStyle="bold"
+                android:paddingTop="60dp"
                 android:gravity="center"/>
 
         </FrameLayout>

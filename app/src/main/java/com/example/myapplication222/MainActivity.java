@@ -73,15 +73,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void readDB()
-    {
-        DBHelper dbHelper = new DBHelper(this);
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.rawQuery("select * from tb_voca", null);
-        while(cursor.moveToNext()){
-            Log.d(cursor.getString(1), cursor.getString(2));
-        }
-    }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -111,6 +103,16 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void readDB()
+    {
+        DBHelper dbHelper = new DBHelper(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor = db.rawQuery("select * from tb_voca", null);
+        while(cursor.moveToNext()){
+            Log.d(cursor.getString(1), cursor.getString(3));
+        }
+    }
+
     //파일읽는 함수
     private void fileRead() {
         InputStream inputStream = getResources().openRawResource(R.raw.vocadb); //res/raw/vocadb 텍스트 파일 가져오기
@@ -122,7 +124,8 @@ public class MainActivity extends AppCompatActivity {
                String[] split = data.split("-"); //-를 기준으로 나눔
                arrayList.add(split[0]);  //arrayList에 저장 eng
                arrayList.add(split[1]);  //kor
-               arrayList.add(split[2]);  //day
+               arrayList.add(split[2]);  //speak
+               arrayList.add(split[3]);  //day
            }
         }catch (IOException e){
             e.printStackTrace();
@@ -132,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
     private void setDB(){
         DBHelper helper= new DBHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
+
 //        Cursor cursor = db.rawQuery("select * from tb_voca",null);
 //        cursor.moveToFirst();
 //        if(cursor.getString(1)=="subjective"){
@@ -139,10 +143,11 @@ public class MainActivity extends AppCompatActivity {
 //            return;
 //        }
         for(int i=0; i<60; i++) {  //단어 60개라 60개 썼다.
-            db.execSQL("insert into tb_voca (eng, kor, day, star, nope) values('"
-                    + arrayList.get(i*3) + "', '"  //eng
-                    + arrayList.get(i*3+1) + "', '"  //kor
-                    + Integer.parseInt(arrayList.get(i*3+2)) + "', '" //day
+            db.execSQL("insert into tb_voca (eng, kor, speak, day, star, nope) values('"
+                    + arrayList.get(i*4) + "', '"  //eng
+                    + arrayList.get(i*4+1) + "', '"  //kor
+                    + arrayList.get(i*4+2) + "', '" //speak
+                    + Integer.parseInt(arrayList.get(i*4+3)) + "', '" //day
                     + 0 + "', '" + 0 + "')"); //star랑 nope
         }
         db.close();

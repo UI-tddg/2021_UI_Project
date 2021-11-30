@@ -20,6 +20,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "(_id integer primary key autoincrement, "+  //id값 저절로 생성
                 "eng, " +  //영단어
                 "kor, " +  //뜻
+                "speak, "+ //발음기호
                 "day integer, " +  //day
                 "star interger, " +  //중요단어
                 "nope integer)";  //틀린단어 체크

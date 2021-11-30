@@ -66,20 +66,21 @@ public class ListView extends AppCompatActivity {
     }
 
     private void selectDB(){
-        arrayDay = new String[20][6];
+        arrayDay = new String[20][7];
         DBHelper dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from tb_voca", null);
         int k=0;
         try {
             while(cursor.moveToNext()){
-                  if((cursor.getInt(3))==1) {//day가 1인 데이터만 배열에 저장
+                  if((cursor.getInt(4))==1) {//day가 1인 데이터만 배열에 저장
                       arrayDay[k][0]=Integer.toString(cursor.getInt(0)); //id
                       arrayDay[k][1]=cursor.getString(1); //eng
                       arrayDay[k][2]=cursor.getString(2); //kor
-                      arrayDay[k][3]=Integer.toString(cursor.getInt(3)); //day
-                      arrayDay[k][4]=Integer.toString(cursor.getInt(4)); //star
-                      arrayDay[k][5]=Integer.toString(cursor.getInt(5)); //nope
+                      arrayDay[k][3]=cursor.getString(3); //speak
+                      arrayDay[k][4]=Integer.toString(cursor.getInt(4)); //day
+                      arrayDay[k][5]=Integer.toString(cursor.getInt(5)); //star
+                      arrayDay[k][6]=Integer.toString(cursor.getInt(6)); //nope
                       Log.d("cursor", arrayDay[k][3]);
                       Log.d("k", Integer.toString(k));
                       k++;

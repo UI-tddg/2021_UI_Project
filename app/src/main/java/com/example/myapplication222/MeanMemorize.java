@@ -19,6 +19,7 @@ public class MeanMemorize extends AppCompatActivity implements View.OnClickListe
     private ImageButton nextBtn;
     private ImageButton prevBtn;
     private TextView korText;
+    private TextView showSpeaker;
     private int current=0;  //현재 출력되고 있는 배열의 번호
 
     @Override
@@ -27,22 +28,30 @@ public class MeanMemorize extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.memorize);
 
         touchButton = (Button) findViewById(R.id.touchButton);
-        showWord = (TextView) findViewById(R.id.showWord);
-        starButton = (ImageButton) findViewById(R.id.starButton);
-        colorStar = (ImageButton) findViewById(R.id.colorStar);
-        nextBtn = (ImageButton)findViewById(R.id.mean_next_btn);
-        prevBtn =(ImageButton)findViewById(R.id.mean_prev_btn);
-        korText = (TextView)findViewById(R.id.mean_kor_text);
         touchButton.setOnClickListener(this);
+
+        showWord = (TextView) findViewById(R.id.showWord);
         showWord.setOnClickListener(this);
+
+        starButton = (ImageButton) findViewById(R.id.starButton);
         starButton.setOnClickListener(this);
+
+        colorStar = (ImageButton) findViewById(R.id.colorStar);
         colorStar.setOnClickListener(this);
+
+        nextBtn = (ImageButton)findViewById(R.id.mean_next_btn);
         nextBtn.setOnClickListener(this);
+
+        prevBtn =(ImageButton)findViewById(R.id.mean_prev_btn);
         prevBtn.setOnClickListener(this);
+
+        showSpeaker=(TextView)findViewById(R.id.showWord_speaker);
+        korText = (TextView)findViewById(R.id.mean_kor_text);
 
         //초기값 세팅
         korText.setText(ListView.arrayDay[current][2]);
         showWord.setText(ListView.arrayDay[current][1]);
+        showSpeaker.setText(ListView.arrayDay[current][3]);
         current++;
     }
 
@@ -68,6 +77,7 @@ public class MeanMemorize extends AppCompatActivity implements View.OnClickListe
                 touchButton.setVisibility(View.VISIBLE);
                 korText.setText(ListView.arrayDay[current][2]);
                 showWord.setText(ListView.arrayDay[current][1]);
+                showSpeaker.setText(ListView.arrayDay[current][3]);
                 current++;
             }
         }
@@ -81,6 +91,7 @@ public class MeanMemorize extends AppCompatActivity implements View.OnClickListe
                 touchButton.setVisibility(View.VISIBLE);
                 korText.setText(ListView.arrayDay[current][2]);
                 showWord.setText(ListView.arrayDay[current][1]);
+                showSpeaker.setText(ListView.arrayDay[current][3]);
                 current++;
             }
         }
