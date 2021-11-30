@@ -76,11 +76,7 @@ public class WordMemorize extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(getApplicationContext(), FinishMemorize.class);
                 startActivity(intent);
             }else {
-                touchButton.setVisibility(View.VISIBLE);
-                korText.setText(ListView.arrayDay[current][1]);
-                showWord.setText(ListView.arrayDay[current][2]);
-                speaker.setText(ListView.arrayDay[current][3]);
-                current++;
+                setText();
             }
         }
         if (view==prevBtn){
@@ -90,12 +86,15 @@ public class WordMemorize extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             }else{
                 current--;
-                touchButton.setVisibility(View.VISIBLE);
-                korText.setText(ListView.arrayDay[current][1]);
-                showWord.setText(ListView.arrayDay[current][2]);
-                speaker.setText(ListView.arrayDay[current][3]);
-                current++;
+                setText();
             }
         }
+    }
+    private void setText(){
+        touchButton.setVisibility(View.VISIBLE);
+        korText.setText(ListView.arrayDay[current][1]);
+        showWord.setText(ListView.arrayDay[current][2]);
+        speaker.setText(ListView.arrayDay[current][3]);
+        current++;
     }
 }
