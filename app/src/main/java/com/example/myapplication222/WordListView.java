@@ -40,10 +40,6 @@ public class WordListView extends AppCompatActivity {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
-        else if (id==R.id.today_word_list){
-            Intent intent = new Intent(this, WordListView.class);
-            startActivity(intent);
-        }
         else if (id==R.id.star_word_list){
             Intent intent = new Intent(this, StarWordListView.class);
             startActivity(intent);

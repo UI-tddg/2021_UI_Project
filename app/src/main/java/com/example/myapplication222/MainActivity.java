@@ -73,7 +73,51 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button day4_btn = (Button) findViewById(R.id.day4);
+        day4_btn.setOnClickListener(new View.OnClickListener() {
 
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getApplicationContext(), WordListView.class);
+                intent.putExtra("day",4);
+
+                startActivity(intent);
+            }
+        });
+
+        Button day5_btn = (Button) findViewById(R.id.day5);
+        day5_btn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getApplicationContext(), WordListView.class);
+                intent.putExtra("day",5);
+
+                startActivity(intent);
+            }
+        });
+//        Button day6_btn = (Button) findViewById(R.id.day6);
+//        day6_btn.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View view) {
+//
+//                Intent intent = new Intent(getApplicationContext(), WordListView.class);
+//                intent.putExtra("day",6);
+//
+//                startActivity(intent);
+//            }
+//        });
+//        Button day7_btn = (Button) findViewById(R.id.day7);
+//        day7_btn.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View view) {
+//
+//                Intent intent = new Intent(getApplicationContext(), WordListView.class);
+//                intent.putExtra("day",7);
+//
+//                startActivity(intent);
+//            }
+//        });
     }
 
     @Override
@@ -96,10 +140,6 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (id==R.id.day_word_list){
             Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        }
-        else if (id==R.id.today_word_list){
-            Intent intent = new Intent(this, WordListView.class);
             startActivity(intent);
         }
         else if (id==R.id.star_word_list){
@@ -152,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
 //            cursor.close();
 //            return;
 //        }
-        for(int i=0; i<60; i++) {  //단어 60개라 60개 썼다.
+        for(int i=0; i<100; i++) {  //단어 60개라 60개 썼다.
             db.execSQL("insert into tb_voca (eng, kor, speak, day, star, nope) values('"
                     + arrayList.get(i*4) + "', '"  //eng
                     + arrayList.get(i*4+1) + "', '"  //kor

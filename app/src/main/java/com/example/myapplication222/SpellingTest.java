@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 //TODO : 제출 버튼 누르고 맞으면 답안 텍스트 지우기
 //TODO : 위에 추천어 안 나오는 키보드로
-//TODO :
 
 public class SpellingTest extends AppCompatActivity implements View.OnClickListener {
 

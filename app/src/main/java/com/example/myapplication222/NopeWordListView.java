@@ -42,10 +42,6 @@ public class NopeWordListView extends AppCompatActivity {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
-        else if (id==R.id.today_word_list){
-            Intent intent = new Intent(this, WordListView.class);
-            startActivity(intent);
-        }
         else if (id==R.id.star_word_list){
             Intent intent = new Intent(this, StarWordListView.class);
             startActivity(intent);
@@ -73,14 +69,14 @@ public class NopeWordListView extends AppCompatActivity {
         listView.setAdapter(myAdapter);
     }
     private void selectDB(){
-        arrayDay = new String[60][7];
+        arrayDay = new String[100][7];
         DBHelper dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from tb_voca", null);
         int k=0;
         try {
             while(cursor.moveToNext()){
-                if(((cursor.getInt(4)) == 1 )||((cursor.getInt(4)) == 2 )||((cursor.getInt(4)) == 3)) {
+                if(((cursor.getInt(4)) == 1 )||((cursor.getInt(4)) == 2 )||((cursor.getInt(4)) == 3)||((cursor.getInt(4)) == 4)||((cursor.getInt(4)) == 5)) {
                     arrayDay[k][0]=Integer.toString(cursor.getInt(0)); //id
                     arrayDay[k][1]=cursor.getString(1); //eng
                     arrayDay[k][2]=cursor.getString(2); //kor
@@ -101,7 +97,7 @@ public class NopeWordListView extends AppCompatActivity {
     public void InitializeWordData()
     {
         wordDataList = new ArrayList<SampleData>();
-        for (int current = 0; current < 50; current++) {
+        for (int current = 0; current < 100; current++) {
             if (Integer.parseInt(NopeWordListView.arrayDay[current][6]) == 1){
                 EngWord = NopeWordListView.arrayDay[current][1];
                 KorWord = NopeWordListView.arrayDay[current][2];
