@@ -38,8 +38,11 @@ public class MainActivity extends AppCompatActivity {
         day1_btn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListView.class);
+
+
+                Intent intent = new Intent(getApplicationContext(), WordListView.class);
                 intent.putExtra("day",1); //인텐트에 데이터 추가
+
                 startActivity(intent);
             }
         });
@@ -49,8 +52,10 @@ public class MainActivity extends AppCompatActivity {
         day2_btn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListView.class);
+
+                Intent intent = new Intent(getApplicationContext(), WordListView.class);
                 intent.putExtra("day",2);
+
                 startActivity(intent);
             }
         });
@@ -60,8 +65,10 @@ public class MainActivity extends AppCompatActivity {
         day3_btn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ListView.class);
+
+                Intent intent = new Intent(getApplicationContext(), WordListView.class);
                 intent.putExtra("day",3);
+
                 startActivity(intent);
             }
         });
@@ -83,23 +90,23 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here.
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if (id==R.id.action_one){
-            Toast.makeText(this, "Item One Clicked", Toast.LENGTH_SHORT).show();
+        if (id==R.id.share_btn){
+            Toast.makeText(this, "공유 버튼", Toast.LENGTH_SHORT).show();
             return true;
+        }
+        else if (id==R.id.action_one){
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         }
         else if (id==R.id.action_two){
-            Toast.makeText(this, "Day 단어 리스트", Toast.LENGTH_SHORT).show();
-            return true;
+            Intent intent = new Intent(this, WordListView.class);
+            startActivity(intent);
         }
         else if (id==R.id.action_three){
-            Toast.makeText(this, "오늘의 단어 리스트", Toast.LENGTH_SHORT).show();
-            return true;
+            Intent intent = new Intent(this, StarWordListView.class);
+            startActivity(intent);
         }
         else if (id==R.id.action_four){
-            Toast.makeText(this, "틀린 단어 리스트", Toast.LENGTH_SHORT).show();
-            return true;
-        }
-        else if (id==R.id.action_five){
             Toast.makeText(this, "중요 단어 리스트", Toast.LENGTH_SHORT).show();
             return true;
         }

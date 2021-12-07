@@ -4,23 +4,23 @@
 
 
     <item
-        android:id="@+id/action_one"
+        android:id="@+id/share_btn"
         android:icon="@drawable/ic_baseline_share_24"
         app:showAsAction="always"
         android:title="Item One"/>
 
     <item
-        android:id="@+id/action_two"
+        android:id="@+id/action_one"
         android:title="Day 단어 리스트"/>
 
     <item
-        android:id="@+id/action_three"
+        android:id="@+id/action_two"
         android:title="오늘의 단어 리스트"/>
     <item
-        android:id="@+id/action_four"
+        android:id="@+id/action_three"
         android:title="틀린 단어 리스트"/>
     <item
-        android:id="@+id/action_five"
+        android:id="@+id/action_four"
         android:title="중요 단어 리스트"/>
 
 
