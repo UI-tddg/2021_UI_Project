@@ -22,6 +22,9 @@ public class ListView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_view);
 
+        //메인에서 day 받기
+        day= getIntent().getExtras().getInt("day");
+
         //단어 암기 버튼 클릭시 액티비티 전환
         Button mem_btn = (Button) findViewById(R.id.mem_btn);
         mem_btn.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +76,7 @@ public class ListView extends AppCompatActivity {
         int k=0;
         try {
             while(cursor.moveToNext()){
-                  if((cursor.getInt(4))==1) {//day가 1인 데이터만 배열에 저장
+                  if((cursor.getInt(4))==day) {//day가 1인 데이터만 배열에 저장
                       arrayDay[k][0]=Integer.toString(cursor.getInt(0)); //id
                       arrayDay[k][1]=cursor.getString(1); //eng
                       arrayDay[k][2]=cursor.getString(2); //kor

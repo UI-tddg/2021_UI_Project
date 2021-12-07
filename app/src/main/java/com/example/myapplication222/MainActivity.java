@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ListView.class);
+                intent.putExtra("day",1); //인텐트에 데이터 추가
                 startActivity(intent);
             }
         });
@@ -49,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ListView.class);
+                intent.putExtra("day",2);
                 startActivity(intent);
             }
         });
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), ListView.class);
+                intent.putExtra("day",3);
                 startActivity(intent);
             }
         });
