@@ -7,9 +7,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -23,7 +20,6 @@ public class StarWordListView extends AppCompatActivity {
     public static String[][] arrayDay;
     public String EngWord;
     public String KorWord;
-    private int day = 1;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,14 +66,14 @@ public class StarWordListView extends AppCompatActivity {
         listView.setAdapter(myAdapter);
     }
     private void selectDB(){
-        arrayDay = new String[60][7];
+        arrayDay = new String[100][7];
         DBHelper dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from tb_voca", null);
         int k=0;
         try {
             while(cursor.moveToNext()){
-                if(((cursor.getInt(4)) == 1 )||((cursor.getInt(4)) == 2 )||((cursor.getInt(4)) == 3)) {
+                if(((cursor.getInt(4)) == 1 )||((cursor.getInt(4)) == 2 )||((cursor.getInt(4)) == 3)||((cursor.getInt(4)) == 4)||((cursor.getInt(4)) == 5)) {
                     arrayDay[k][0]=Integer.toString(cursor.getInt(0)); //id
                     arrayDay[k][1]=cursor.getString(1); //eng
                     arrayDay[k][2]=cursor.getString(2); //kor
@@ -98,7 +94,7 @@ public class StarWordListView extends AppCompatActivity {
     public void InitializeWordData()
     {
         wordDataList = new ArrayList<SampleData>();
-        for (int current = 0; current < 60; current++) {
+        for (int current = 0; current < 90; current++) {
             if (Integer.parseInt(NopeWordListView.arrayDay[current][5]) == 1){
                 EngWord = StarWordListView.arrayDay[current][1];
                 KorWord = StarWordListView.arrayDay[current][2];
