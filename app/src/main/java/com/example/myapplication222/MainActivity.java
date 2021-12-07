@@ -102,12 +102,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, WordListView.class);
             startActivity(intent);
         }
-        else if (id==R.id.nope_word_list){
-            Intent intent = new Intent(this, NopeWordListView.class);
+        else if (id==R.id.star_word_list){
+            Intent intent = new Intent(this, StarWordListView.class);
             startActivity(intent);
         }
-        else if (id==R.id.star_btn_list){
-            Intent intent = new Intent(this, StarWordListView.class);
+        else if (id==R.id.nope_word_list){
+            Intent intent = new Intent(this, NopeWordListView.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

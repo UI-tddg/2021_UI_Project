@@ -18,11 +18,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.ArrayList;
 
 public class StarWordListView extends AppCompatActivity {
-    ArrayList<SampleData> wordDataList;
-    public String EnglishWord;
-    public static String[][] arrayDay;
-    private int day = 1;
 
+    ArrayList<SampleData> wordDataList;
+    public static String[][] arrayDay;
+    public String EnglishWord;
+    private int day = 1;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -45,32 +45,26 @@ public class StarWordListView extends AppCompatActivity {
             Intent intent = new Intent(this, WordListView.class);
             startActivity(intent);
         }
-        else if (id==R.id.nope_word_list){
-            Intent intent = new Intent(this, NopeWordListView.class);
+        else if (id==R.id.star_word_list){
+            Intent intent = new Intent(this, StarWordListView.class);
             startActivity(intent);
         }
-        else if (id==R.id.star_btn_list){
-            Intent intent = new Intent(this, StarWordListView.class);
+        else if (id==R.id.nope_word_list){
+            Intent intent = new Intent(this, NopeWordListView.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.wordlist_main);
-        getSupportActionBar().setSubtitle("수능 실전편_틀린 단어 리스트");
-
-        //단어 암기 버튼 클릭 시 액티비티 전환
-        Button mem_btn88 = (Button) findViewById(R.id.mem_btn88);
-        mem_btn88.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MemorizeSellect.class);
-                startActivity(intent);
-            }
-        });
-
+        setContentView(R.layout.list_layout);
+        getSupportActionBar().setSubtitle("수능 실전편_중요 단어");
+//        day = getIntent().getExtras().getInt("day");
+//
 //        Button mem_btn = (Button) findViewById(R.id.mem_btn);
 //        mem_btn.setOnClickListener(new View.OnClickListener() {
 //            public void onClick(View view) {
@@ -78,52 +72,54 @@ public class StarWordListView extends AppCompatActivity {
 //                startActivity(intent);
 //            }
 //        });
-
-        //시험 버튼 클릭시 액티비티 전환
-        Button test_btn = (Button) findViewById(R.id.test_btn1);
-        test_btn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), TestSellect.class);
-                startActivity(intent);
-            }
-        });
-
-        //재시험 버튼 클릭시 액티비티 전환
-        Button retest_btn = (Button) findViewById(R.id.retest_btn1);
-        retest_btn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), RetestSellect.class);
-                startActivity(intent);
-            }
-        });
-
-        //매칭게임 버튼 클릭시 매칭 게임 설명 화면 액티비티 전환
-        Button match_btn = (Button) findViewById(R.id.match_btn1);
-        match_btn.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MatchingGame_Start.class);
-                startActivity(intent);
-            }
-        });
+//
+//        //시험 버튼 클릭시 액티비티 전환
+//        Button test_btn = (Button) findViewById(R.id.test_btn1);
+//        test_btn.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), TestSellect.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        //재시험 버튼 클릭시 액티비티 전환
+//        Button retest_btn = (Button) findViewById(R.id.retest_btn1);
+//        retest_btn.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), RetestSellect.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        //매칭게임 버튼 클릭시 매칭 게임 설명 화면 액티비티 전환
+//        Button match_btn = (Button) findViewById(R.id.match_btn1);
+//        match_btn.setOnClickListener(new View.OnClickListener() {
+//
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), MatchingGame_Start.class);
+//                startActivity(intent);
+//            }
+//        });
 
         selectDB();
 
-        this.StarInitializeWordData();
+        this.InitializeWordData();
         ListView listView = (ListView)findViewById(R.id.listView);
         final MyAdapter myAdapter = new MyAdapter(this,wordDataList);
 
         listView.setAdapter(myAdapter);
-
     }
     private void selectDB(){
-        arrayDay = new String[20][7];
+        arrayDay = new String[60][7];
         DBHelper dbHelper = new DBHelper(this);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor cursor = db.rawQuery("select * from tb_voca", null);
         int k=0;
         try {
             while(cursor.moveToNext()){
-                if((cursor.getInt(4))==day) {//day가 1인 데이터만 배열에 저장
+                if(((cursor.getInt(4)) == 1 )||((cursor.getInt(4)) == 2 )||((cursor.getInt(4)) == 3)) {
                     arrayDay[k][0]=Integer.toString(cursor.getInt(0)); //id
                     arrayDay[k][1]=cursor.getString(1); //eng
                     arrayDay[k][2]=cursor.getString(2); //kor
@@ -131,7 +127,7 @@ public class StarWordListView extends AppCompatActivity {
                     arrayDay[k][4]=Integer.toString(cursor.getInt(4)); //day
                     arrayDay[k][5]=Integer.toString(cursor.getInt(5)); //star
                     arrayDay[k][6]=Integer.toString(cursor.getInt(6)); //nope
-                    Log.d("cursor", arrayDay[k][3]);
+                    Log.d("cursor", arrayDay[k][5]);
                     Log.d("k", Integer.toString(k));
                     k++;
                 }
@@ -141,18 +137,14 @@ public class StarWordListView extends AppCompatActivity {
         }
     }
 
-    public void StarInitializeWordData()
+    public void InitializeWordData()
     {
         wordDataList = new ArrayList<SampleData>();
-
-        for (int current = 0; current < 20; current++) {
-            if (Integer.parseInt(WordListView.arrayDay[current][5])==1) {
-                EnglishWord = WordListView.arrayDay[current][1];
-                wordDataList.add(new SampleData(R.drawable.color_star, EnglishWord));
+        for (int current = 0; current < 50; current++) {
+            if (Integer.parseInt(NopeWordListView.arrayDay[current][5]) == 1){
+                EnglishWord = NopeWordListView.arrayDay[current][1];
+                wordDataList.add(new SampleData(R.drawable.dot, EnglishWord));
             }
         }
     }
 }
-
-//TODO : Integer.parseInt(WordListView.arrayDay[current][5])==1 (별표 쳐진 것만 출력
-//for 문으로 전체 돌면서 if문으로 위 조건 체크하면서 출력하기.
