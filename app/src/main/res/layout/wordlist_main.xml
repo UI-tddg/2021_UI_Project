@@ -77,6 +77,7 @@
             </LinearLayout>
 
             <ListView
+
                 android:id="@+id/listView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -151,7 +152,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@color/pink"
-            android:dividerHeight="1px" />
+            android:dividerHeight="1px"
+            android:transcriptMode="normal"
+            />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

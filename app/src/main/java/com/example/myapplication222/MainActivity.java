@@ -84,21 +84,21 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "공유 버튼", Toast.LENGTH_SHORT).show();
             return true;
         }
-        else if (id==R.id.action_one){
+        else if (id==R.id.day_word_list){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
-        else if (id==R.id.action_two){
+        else if (id==R.id.today_word_list){
             Intent intent = new Intent(this, WordListView.class);
             startActivity(intent);
         }
-        else if (id==R.id.action_three){
-            Intent intent = new Intent(this, StarWordListView.class);
+        else if (id==R.id.nope_word_list){
+            Intent intent = new Intent(this, NopeWordListView.class);
             startActivity(intent);
         }
-        else if (id==R.id.action_four){
-            Toast.makeText(this, "중요 단어 리스트", Toast.LENGTH_SHORT).show();
-            return true;
+        else if (id==R.id.star_btn_list){
+            Intent intent = new Intent(this, StarWordListView.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }

@@ -20,6 +20,7 @@ public class WordListView extends AppCompatActivity {
     ArrayList<SampleData> wordDataList;
     public static String[][] arrayDay;
     public String EnglishWord;
+    private int day = 1;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -34,21 +35,21 @@ public class WordListView extends AppCompatActivity {
             Toast.makeText(this, "공유 버튼", Toast.LENGTH_SHORT).show();
             return true;
         }
-        else if (id==R.id.action_one){
+        else if (id==R.id.day_word_list){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
-        else if (id==R.id.action_two){
+        else if (id==R.id.today_word_list){
             Intent intent = new Intent(this, WordListView.class);
             startActivity(intent);
         }
-        else if (id==R.id.action_three){
-            Intent intent = new Intent(this, StarWordListView.class);
+        else if (id==R.id.nope_word_list){
+            Intent intent = new Intent(this, NopeWordListView.class);
             startActivity(intent);
         }
-        else if (id==R.id.action_four){
-            Toast.makeText(this, "중요 단어 리스트", Toast.LENGTH_SHORT).show();
-            return true;
+        else if (id==R.id.star_btn_list){
+            Intent intent = new Intent(this, StarWordListView.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -125,7 +126,7 @@ public class WordListView extends AppCompatActivity {
         int k=0;
         try {
             while(cursor.moveToNext()){
-                if((cursor.getInt(4))==1) {//day가 1인 데이터만 배열에 저장
+                if((cursor.getInt(4))== day) {//day가 1인 데이터만 배열에 저장
                     arrayDay[k][0]=Integer.toString(cursor.getInt(0)); //id
                     arrayDay[k][1]=cursor.getString(1); //eng
                     arrayDay[k][2]=cursor.getString(2); //kor
@@ -146,7 +147,6 @@ public class WordListView extends AppCompatActivity {
     public void InitializeWordData()
     {
         wordDataList = new ArrayList<SampleData>();
-
         for (int current = 0; current < 20; current++) {
             EnglishWord = WordListView.arrayDay[current][1];
             wordDataList.add(new SampleData(R.drawable.star, EnglishWord));
