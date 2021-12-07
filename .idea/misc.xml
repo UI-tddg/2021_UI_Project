@@ -65,12 +65,8 @@
         <entry key="app/src/main/res/layout/list_view.xml" value="0.21354166666666666" />
         <entry key="app/src/main/res/layout/matchinggame_start.xml" value="0.1" />
         <entry key="app/src/main/res/layout/meaning_test.xml" value="0.2942708333333333" />
-<<<<<<< HEAD
         <entry key="app/src/main/res/layout/memorize.xml" value="0.14895833333333333" />
-=======
-        <entry key="app/src/main/res/layout/memorize.xml" value="0.1157562559024836" />
->>>>>>> 6b6a491387c1d2064d8e1deb517055951771845b
-        <entry key="app/src/main/res/layout/spelling_test.xml" value="0.3396501457725947" />
+        <entry key="app/src/main/res/layout/spelling_test.xml" value="0.1" />
         <entry key="app/src/main/res/layout/spelling_test_pass.xml" value="0.14895833333333333" />
         <entry key="app/src/main/res/layout/word_memorize.xml" value="0.2246376811594203" />
         <entry key="app/src/main/res/layout/wordlist_layout.xml" value="0.335" />

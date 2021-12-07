@@ -3,6 +3,7 @@ package com.example.myapplication222;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
@@ -12,6 +13,11 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+
+//TODO : 제출 버튼 누르고 맞으면 답안 텍스트 지우기
+//TODO : 위에 추천어 안 나오는 키보드로
+//TODO :
 
 public class SpellingTest extends AppCompatActivity implements View.OnClickListener {
 
@@ -23,6 +29,9 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
     private Button spelling_test_pass_btn;
     private ImageView spelling_test_correct;
     private ImageView spelling_test_wrong;
+    private ImageButton star_btn;
+    private ImageButton colorStar_btn;
+
     private int current=0;
 
     @Override
@@ -50,11 +59,28 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
         spelling_test_correct = findViewById(R.id.spelling_test_correct);
         spelling_test_wrong = findViewById(R.id.spelling_test_wrong);
 
+        star_btn = (ImageButton) findViewById(R.id.star_btn);
+        star_btn.setOnClickListener(this);
+
+        colorStar_btn = (ImageButton) findViewById(R.id.colorStar_btn);
+        colorStar_btn.setOnClickListener(this);
+
+        if(Integer.parseInt(WordListView.arrayDay[current][5])==1 ){    //중요단어라면 칠해진 별인 채로 출력
+            colorStar_btn.setVisibility(View.VISIBLE);
+        }
         MySoundPlayer.initSounds(getApplicationContext());
     }
 
     @Override
     public void onClick(View view) {
+        if (view == star_btn) {
+            colorStar_btn.setVisibility(View.VISIBLE);
+            updateStar(WordListView.arrayDay[(current-1)][1], 1);  //중요단어 체크
+        }
+        if (view == colorStar_btn) {
+            colorStar_btn.setVisibility(View.INVISIBLE);
+            updateStar(WordListView.arrayDay[(current-1)][1], 0);  //중요단어 해제
+        }
         if (view == spelling_test_kor) {
             setText();
         }
@@ -70,6 +96,7 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 Animation fail = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
                 spelling_test_wrong.startAnimation(fail);
+                updateNope(WordListView.arrayDay[(current-1)][1], 1);
             }
         }
         if (view == spelling_test_hint_btn) {
@@ -82,15 +109,54 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
             MySoundPlayer.play(MySoundPlayer.FAIL);
             Animation fail = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
             spelling_test_wrong.startAnimation(fail);
+            updateNope(WordListView.arrayDay[(current-1)][1], 1);
             current++;
             setText();
             spelling_test_pass_btn.setVisibility(View.INVISIBLE);
             spelling_test_hint_btn.setVisibility(View.VISIBLE);
+        }
+        if (view == star_btn) {
+            star_btn.setVisibility(View.VISIBLE);
+            updateStar(WordListView.arrayDay[(current-1)][1], 1);  //중요단어 체크
+        }
+        if (view == colorStar_btn) {
+            colorStar_btn.setVisibility(View.INVISIBLE);
+            updateStar(WordListView.arrayDay[(current-1)][1], 0);  //중요단어 해제
         }
     }
 
     private void setText() {
         spelling_test_kor.setText(WordListView.arrayDay[current][2]);
         spelling_test_hint.setText(WordListView.arrayDay[current][1]);
+        spelling_test_eng.setText(null);
+
+        if (Integer.parseInt(WordListView.arrayDay[current][5])==1){    //중요단어라면 칠해진 별인 채로 출력
+            colorStar_btn.setVisibility(View.VISIBLE);
+        }else{
+            colorStar_btn.setVisibility(View.INVISIBLE);
+        }
+    }
+    private void updateStar(String eng, int star) {
+        //배열 값 변경
+        WordListView.arrayDay[(current-1)][5]=Integer.toString(star);
+
+        //db 값 변경
+        DBHelper helper = new DBHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        // 입력한 항목과 일치하는 행의 가격 정보 수정
+        db.execSQL("UPDATE tb_voca SET star=" + star + " WHERE eng='" + eng + "';");
+        db.close();
+    }
+
+    private void updateNope(String eng, int nope) {
+        //배열 값 변경
+        WordListView.arrayDay[(current-1)][6]=Integer.toString(nope);
+
+        //db 값 변경
+        DBHelper helper = new DBHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        // 입력한 항목과 일치하는 행의 가격 정보 수정
+        db.execSQL("UPDATE tb_voca SET nope=" + nope + " WHERE eng='" + eng + "';");
+        db.close();
     }
 }

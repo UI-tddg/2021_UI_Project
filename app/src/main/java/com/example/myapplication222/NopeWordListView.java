@@ -63,46 +63,6 @@ public class NopeWordListView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_layout);
         getSupportActionBar().setSubtitle("수능 실전편_틀린 단어");
-//        day = getIntent().getExtras().getInt("day");
-//
-//        Button mem_btn = (Button) findViewById(R.id.mem_btn);
-//        mem_btn.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), MemorizeSellect.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        //시험 버튼 클릭시 액티비티 전환
-//        Button test_btn = (Button) findViewById(R.id.test_btn1);
-//        test_btn.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), TestSellect.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        //재시험 버튼 클릭시 액티비티 전환
-//        Button retest_btn = (Button) findViewById(R.id.retest_btn1);
-//        retest_btn.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), RetestSellect.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        //매칭게임 버튼 클릭시 매칭 게임 설명 화면 액티비티 전환
-//        Button match_btn = (Button) findViewById(R.id.match_btn1);
-//        match_btn.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), MatchingGame_Start.class);
-//                startActivity(intent);
-//            }
-//        });
-
         selectDB();
 
         this.InitializeWordData();
@@ -127,7 +87,7 @@ public class NopeWordListView extends AppCompatActivity {
                     arrayDay[k][4]=Integer.toString(cursor.getInt(4)); //day
                     arrayDay[k][5]=Integer.toString(cursor.getInt(5)); //star
                     arrayDay[k][6]=Integer.toString(cursor.getInt(6)); //nope
-                    Log.d("cursor", arrayDay[k][5]);
+                    Log.d("cursor", arrayDay[k][6]);
                     Log.d("k", Integer.toString(k));
                     k++;
                 }
@@ -141,7 +101,7 @@ public class NopeWordListView extends AppCompatActivity {
     {
         wordDataList = new ArrayList<SampleData>();
         for (int current = 0; current < 50; current++) {
-            if (Integer.parseInt(NopeWordListView.arrayDay[current][5]) == 1){
+            if (Integer.parseInt(NopeWordListView.arrayDay[current][6]) == 1){
                 EnglishWord = NopeWordListView.arrayDay[current][1];
                 wordDataList.add(new SampleData(R.drawable.dot, EnglishWord));
             }
