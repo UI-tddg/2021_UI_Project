@@ -76,6 +76,7 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
             Animation hint = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha2);
             spelling_test_hint.startAnimation(hint);
             spelling_test_pass_btn.setVisibility(View.VISIBLE);
+            spelling_test_hint_btn.setVisibility(View.INVISIBLE);
         }
         if (view == spelling_test_pass_btn) {
             MySoundPlayer.play(MySoundPlayer.FAIL);
@@ -84,6 +85,7 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
             current++;
             setText();
             spelling_test_pass_btn.setVisibility(View.INVISIBLE);
+            spelling_test_hint_btn.setVisibility(View.VISIBLE);
         }
     }
 
