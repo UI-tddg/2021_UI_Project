@@ -10,18 +10,18 @@
         android:title="Item One"/>
 
     <item
-        android:id="@+id/action_one"
+        android:id="@+id/day_word_list"
         android:title="Day 단어 리스트"/>
 
     <item
-        android:id="@+id/action_two"
+        android:id="@+id/today_word_list"
         android:title="오늘의 단어 리스트"/>
     <item
-        android:id="@+id/action_three"
-        android:title="틀린 단어 리스트"/>
-    <item
-        android:id="@+id/action_four"
+        android:id="@+id/star_word_list"
         android:title="중요 단어 리스트"/>
+    <item
+        android:id="@+id/nope_word_list"
+        android:title="틀린 단어 리스트"/>
 
 
 </menu>
