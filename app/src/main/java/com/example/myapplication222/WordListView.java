@@ -61,6 +61,7 @@ public class WordListView extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.wordlist_main);
             getSupportActionBar().setSubtitle("수능 실전편");
+            day = getIntent().getExtras().getInt("day");
 
         //단어 암기 버튼 클릭 시 액티비티 전환
         Button mem_btn88 = (Button) findViewById(R.id.mem_btn88);

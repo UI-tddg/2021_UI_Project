@@ -38,7 +38,11 @@ public class MainActivity extends AppCompatActivity {
         day1_btn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
+
+
                 Intent intent = new Intent(getApplicationContext(), WordListView.class);
+                intent.putExtra("day",1); //인텐트에 데이터 추가
+
                 startActivity(intent);
             }
         });
@@ -48,7 +52,10 @@ public class MainActivity extends AppCompatActivity {
         day2_btn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
+
                 Intent intent = new Intent(getApplicationContext(), WordListView.class);
+                intent.putExtra("day",2);
+
                 startActivity(intent);
             }
         });
@@ -58,7 +65,10 @@ public class MainActivity extends AppCompatActivity {
         day3_btn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
+
                 Intent intent = new Intent(getApplicationContext(), WordListView.class);
+                intent.putExtra("day",3);
+
                 startActivity(intent);
             }
         });

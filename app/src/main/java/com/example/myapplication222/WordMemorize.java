@@ -81,6 +81,7 @@ public class WordMemorize extends AppCompatActivity implements View.OnClickListe
             if(current==20) {
                 Intent intent = new Intent(getApplicationContext(), FinishMemorize.class);
                 startActivity(intent);
+                finish();
             }else {
                 setText();
             }
