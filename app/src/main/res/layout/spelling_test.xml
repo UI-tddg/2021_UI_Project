@@ -24,7 +24,7 @@
                 android:src="@drawable/star"
                 android:layout_gravity="center_horizontal|top"/>
             <ImageButton
-                android:id="@+id/colorStar"
+                android:id="@+id/colorStar_btn"
                 android:layout_width="73dp"
                 android:layout_height="75dp"
                 android:background="@android:color/transparent"
@@ -89,8 +89,8 @@
                     android:id="@+id/spelling_test_eng"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
                     android:gravity="center"
+                    android:inputType="textNoSuggestions"
                     android:hint="답을 입력하세요."
                     android:background="@drawable/meaning_button"
                     android:layout_margin="15dp"
