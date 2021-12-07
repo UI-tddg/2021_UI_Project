@@ -34,15 +34,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ListView"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
             android:name=".WordMemorize"
             android:exported="true">
             <intent-filter>
@@ -126,6 +117,15 @@
         </activity>
         <activity
             android:name=".WordListView"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".StarWordListView"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

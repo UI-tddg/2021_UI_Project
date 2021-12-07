@@ -50,7 +50,11 @@
         <entry key="app/src/main/res/layout/activity_main2.xml" value="0.13774319730768422" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.24230072463768115" />
         <entry key="app/src/main/res/layout/matchinggame_start.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/meaning_test.xml" value="0.2942708333333333" />
+        <entry key="app/src/main/res/layout/spelling_test.xml" value="0.2942708333333333" />
         <entry key="app/src/main/res/layout/word_memorize.xml" value="0.2246376811594203" />
+        <entry key="app/src/main/res/layout/wordlist_layout.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/wordlist_main.xml" value="0.13903985507246377" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.335" />
       </map>
     </option>
