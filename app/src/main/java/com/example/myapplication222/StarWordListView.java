@@ -1,6 +1,5 @@
 package com.example.myapplication222;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -13,13 +12,16 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
 
-public class WordListView extends AppCompatActivity {
-
+public class StarWordListView extends AppCompatActivity {
     ArrayList<SampleData> wordDataList;
-    public static String[][] arrayDay;
     public String EnglishWord;
+    public static String[][] arrayDay;
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -53,13 +55,11 @@ public class WordListView extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.wordlist_main);
-            getSupportActionBar().setSubtitle("수능 실전편");
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.wordlist_main);
+        getSupportActionBar().setSubtitle("수능 실전편");
 
         //단어 암기 버튼 클릭 시 액티비티 전환
         Button mem_btn88 = (Button) findViewById(R.id.mem_btn88);
@@ -110,13 +110,13 @@ public class WordListView extends AppCompatActivity {
 
         selectDB();
 
-        this.InitializeWordData();
+        this.StarInitializeWordData();
         ListView listView = (ListView)findViewById(R.id.listView);
         final MyAdapter myAdapter = new MyAdapter(this,wordDataList);
 
         listView.setAdapter(myAdapter);
-    }
 
+    }
     private void selectDB(){
         arrayDay = new String[20][7];
         DBHelper dbHelper = new DBHelper(this);
@@ -143,13 +143,18 @@ public class WordListView extends AppCompatActivity {
         }
     }
 
-    public void InitializeWordData()
+    public void StarInitializeWordData()
     {
         wordDataList = new ArrayList<SampleData>();
 
-        for (int current = 0; current < 20; current++) {
-            EnglishWord = WordListView.arrayDay[current][1];
-            wordDataList.add(new SampleData(R.drawable.star, EnglishWord));
+        for (int current = 0; current < 4; current++) {
+            if (Integer.parseInt(WordListView.arrayDay[current][5])==1) {
+                EnglishWord = WordListView.arrayDay[current][1];
+                wordDataList.add(new SampleData(R.drawable.color_star, EnglishWord));
+            }
         }
     }
 }
+
+//TODO : Integer.parseInt(WordListView.arrayDay[current][5])==1 (별표 쳐진 것만 출력
+//for 문으로 전체 돌면서 if문으로 위 조건 체크하면서 출력하기.

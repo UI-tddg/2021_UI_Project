@@ -43,8 +43,8 @@ public class MyAdapter extends BaseAdapter {
     public View getView(int position, View converView, ViewGroup parent) {
         View view = mLayoutInflater.inflate(R.layout.wordlist_layout, null);
 
-        ImageView imageView = (ImageView)view.findViewById(R.id.star_btn);
-        TextView movieName = (TextView)view.findViewById(R.id.listword);
+        ImageView imageView = (ImageView)view.findViewById(R.id.star_btn_list);
+        TextView movieName = (TextView)view.findViewById(R.id.EnglishWord);
 
 
         imageView.setImageResource(sample.get(position).getStarImg());

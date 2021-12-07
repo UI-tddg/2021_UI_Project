@@ -19,3 +19,4 @@ public class SampleData {
         return this.word;
     }
 }
+
