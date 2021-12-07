@@ -21,7 +21,8 @@ public class NopeWordListView extends AppCompatActivity {
 
     ArrayList<SampleData> wordDataList;
     public static String[][] arrayDay;
-    public String EnglishWord;
+    public String EngWord;
+    public String KorWord;
     private int day = 1;
 
     @Override
@@ -102,8 +103,9 @@ public class NopeWordListView extends AppCompatActivity {
         wordDataList = new ArrayList<SampleData>();
         for (int current = 0; current < 50; current++) {
             if (Integer.parseInt(NopeWordListView.arrayDay[current][6]) == 1){
-                EnglishWord = NopeWordListView.arrayDay[current][1];
-                wordDataList.add(new SampleData(R.drawable.dot, EnglishWord));
+                EngWord = NopeWordListView.arrayDay[current][1];
+                KorWord = NopeWordListView.arrayDay[current][2];
+                wordDataList.add(new SampleData(R.drawable.dot, EngWord, KorWord));
             }
         }
     }

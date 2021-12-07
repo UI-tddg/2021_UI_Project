@@ -44,12 +44,12 @@ public class MyAdapter extends BaseAdapter {
         View view = mLayoutInflater.inflate(R.layout.wordlist_layout, null);
 
         ImageView imageView = (ImageView)view.findViewById(R.id.star_btn_list);
-        TextView movieName = (TextView)view.findViewById(R.id.EnglishWord);
-
+        TextView EngWord = (TextView)view.findViewById(R.id.EngWord);
+        TextView KorWord = (TextView)view.findViewById(R.id.KorWord);
 
         imageView.setImageResource(sample.get(position).getStarImg());
-        movieName.setText(sample.get(position).getWord());
-
+        EngWord.setText(sample.get(position).getEng());
+        KorWord.setText(sample.get(position).getKor());
 
         return view;
     }
