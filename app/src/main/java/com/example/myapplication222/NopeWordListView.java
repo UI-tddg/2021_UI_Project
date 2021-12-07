@@ -42,10 +42,6 @@ public class NopeWordListView extends AppCompatActivity {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
-        else if (id==R.id.today_word_list){
-            Intent intent = new Intent(this, WordListView.class);
-            startActivity(intent);
-        }
         else if (id==R.id.star_word_list){
             Intent intent = new Intent(this, StarWordListView.class);
             startActivity(intent);
@@ -101,7 +97,7 @@ public class NopeWordListView extends AppCompatActivity {
     public void InitializeWordData()
     {
         wordDataList = new ArrayList<SampleData>();
-        for (int current = 0; current < 50; current++) {
+        for (int current = 0; current < 60; current++) {
             if (Integer.parseInt(NopeWordListView.arrayDay[current][6]) == 1){
                 EngWord = NopeWordListView.arrayDay[current][1];
                 KorWord = NopeWordListView.arrayDay[current][2];

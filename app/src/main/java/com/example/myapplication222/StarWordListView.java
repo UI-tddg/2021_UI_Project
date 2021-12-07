@@ -42,10 +42,6 @@ public class StarWordListView extends AppCompatActivity {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
-        else if (id==R.id.today_word_list){
-            Intent intent = new Intent(this, WordListView.class);
-            startActivity(intent);
-        }
         else if (id==R.id.star_word_list){
             Intent intent = new Intent(this, StarWordListView.class);
             startActivity(intent);
@@ -64,45 +60,6 @@ public class StarWordListView extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.list_layout);
         getSupportActionBar().setSubtitle("수능 실전편_중요 단어");
-//        day = getIntent().getExtras().getInt("day");
-//
-//        Button mem_btn = (Button) findViewById(R.id.mem_btn);
-//        mem_btn.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), MemorizeSellect.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        //시험 버튼 클릭시 액티비티 전환
-//        Button test_btn = (Button) findViewById(R.id.test_btn1);
-//        test_btn.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), TestSellect.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        //재시험 버튼 클릭시 액티비티 전환
-//        Button retest_btn = (Button) findViewById(R.id.retest_btn1);
-//        retest_btn.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), RetestSellect.class);
-//                startActivity(intent);
-//            }
-//        });
-//
-//        //매칭게임 버튼 클릭시 매칭 게임 설명 화면 액티비티 전환
-//        Button match_btn = (Button) findViewById(R.id.match_btn1);
-//        match_btn.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), MatchingGame_Start.class);
-//                startActivity(intent);
-//            }
-//        });
 
         selectDB();
 
@@ -141,7 +98,7 @@ public class StarWordListView extends AppCompatActivity {
     public void InitializeWordData()
     {
         wordDataList = new ArrayList<SampleData>();
-        for (int current = 0; current < 50; current++) {
+        for (int current = 0; current < 60; current++) {
             if (Integer.parseInt(NopeWordListView.arrayDay[current][5]) == 1){
                 EngWord = StarWordListView.arrayDay[current][1];
                 KorWord = StarWordListView.arrayDay[current][2];
