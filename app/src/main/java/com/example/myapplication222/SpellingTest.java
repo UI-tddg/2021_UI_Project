@@ -21,7 +21,6 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
     private Button spelling_test_submit_btn;
     private Button spelling_test_hint_btn;
     private Button spelling_test_pass_btn;
-    private ImageButton nextBtn;
     private ImageView spelling_test_correct;
     private ImageView spelling_test_wrong;
     private int current=0;
@@ -30,9 +29,6 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.spelling_test);
-
-        nextBtn = findViewById(R.id.spelling_text_next_btn);
-        nextBtn.setOnClickListener(this);
 
         spelling_test_submit_btn = findViewById(R.id.spelling_test_submit_btn);
         spelling_test_submit_btn.setOnClickListener(this);
@@ -75,13 +71,6 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
                 Animation fail = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
                 spelling_test_wrong.startAnimation(fail);
             }
-        }
-        if (view == nextBtn) {
-            MySoundPlayer.play(MySoundPlayer.FAIL);
-            Animation fail = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
-            spelling_test_wrong.startAnimation(fail);
-            current++;
-            setText();
         }
         if (view == spelling_test_hint_btn) {
             Animation hint = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha2);
