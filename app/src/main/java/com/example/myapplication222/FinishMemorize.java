@@ -19,7 +19,7 @@ public class FinishMemorize extends AppCompatActivity {
         golist_btn.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), WordListView.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -30,6 +30,7 @@ public class FinishMemorize extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), TestSellect.class);
                 startActivity(intent);
+                finish();
             }
         });
     }
