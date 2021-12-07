@@ -38,6 +38,7 @@
                     android:layout_gravity="center_horizontal"
                     android:text="물속의"
                     android:textSize="30dp"
+                    android:textStyle="bold"
                     android:layout_margin="50dp"/>
                 <ImageView
                     android:id="@+id/spelling_test_correct"
@@ -52,6 +53,16 @@
                     android:layout_height="120dp"
                     android:layout_gravity="center"
                     android:src="@drawable/wrong"
+                    android:visibility="invisible"/>
+                <TextView
+                    android:id="@+id/spelling_test_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="underwater"
+                    android:layout_gravity="center|bottom"
+                    android:textSize="20dp"
+                    android:textColor="@color/gray"
+                    android:layout_marginBottom="15dp"
                     android:visibility="invisible"/>
             </FrameLayout>
 
@@ -79,13 +90,25 @@
                     android:background="@drawable/spell_box"
                     android:text="제출"
                     android:layout_margin="10dp"/>
-
-                <Button
+                <FrameLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/spell_box"
-                    android:text="힌트"
-                    android:layout_margin="10dp"/>
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:id="@+id/spelling_test_hint_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/spell_box"
+                        android:text="힌트"
+                        android:layout_margin="10dp"/>
+                    <Button
+                        android:id="@+id/spelling_test_pass_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/spell_box"
+                        android:text="패스"
+                        android:layout_margin="10dp"
+                        android:visibility="invisible"/>
+                </FrameLayout>
 
                 <ImageButton
                     android:id="@+id/spelling_text_next_btn"

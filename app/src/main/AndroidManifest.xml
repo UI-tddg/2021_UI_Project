@@ -13,6 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication222">
         <activity
+            android:name=".SpellingTestPass"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".FinishMemorize"
             android:exported="true" />
         <activity
