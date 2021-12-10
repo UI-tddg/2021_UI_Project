@@ -119,7 +119,7 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
             MySoundPlayer.play(MySoundPlayer.FAIL);
             Animation fail = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
             spelling_test_wrong.startAnimation(fail);
-            current++;
+            current++;  //순서
             updateStar(WordListView.arrayDay[(current)][1], 1);
 
             if(current==20){
