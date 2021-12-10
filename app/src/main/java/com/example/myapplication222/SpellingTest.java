@@ -3,6 +3,7 @@ package com.example.myapplication222;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +32,8 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
     private ImageButton star_btn;
     private ImageButton colorStar_btn;
 
+    private int wrong;
+    private int total=20;
     private int current=0;
 
     @Override
@@ -89,6 +92,14 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
                 Animation correct = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
                 spelling_test_correct.startAnimation(correct);
                 current++;
+                wrong++;
+                if(current==20){
+                    Intent intent = new Intent(getApplicationContext(), FinishTest.class);
+                    intent.putExtra("wrong",wrong);
+                    intent.putExtra("total",total);
+                    startActivity(intent);
+                    finish();
+                }
                 setText();
             }
             else {
@@ -110,6 +121,13 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
             spelling_test_wrong.startAnimation(fail);
             updateNope(WordListView.arrayDay[(current-1)][1], 1);
             current++;
+            if(current==20){
+                Intent intent = new Intent(getApplicationContext(), FinishTest.class);
+                intent.putExtra("wrong",wrong);
+                intent.putExtra("total",total);
+                startActivity(intent);
+                finish();
+            }
             setText();
             spelling_test_pass_btn.setVisibility(View.INVISIBLE);
             spelling_test_hint_btn.setVisibility(View.VISIBLE);
