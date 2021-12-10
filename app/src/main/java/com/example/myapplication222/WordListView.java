@@ -20,6 +20,7 @@ public class WordListView extends AppCompatActivity {
     ArrayList<SampleData> wordDataList;
     public static String[][] arrayDay;
     public String EnglishWord;
+    public String KorWord;
     private int day = 1;
 
     @Override
@@ -37,10 +38,6 @@ public class WordListView extends AppCompatActivity {
         }
         else if (id==R.id.day_word_list){
             Intent intent = new Intent(this, MainActivity.class);
-            startActivity(intent);
-        }
-        else if (id==R.id.today_word_list){
-            Intent intent = new Intent(this, WordListView.class);
             startActivity(intent);
         }
         else if (id==R.id.star_word_list){
@@ -149,7 +146,8 @@ public class WordListView extends AppCompatActivity {
         wordDataList = new ArrayList<SampleData>();
         for (int current = 0; current < 20; current++) {
             EnglishWord = WordListView.arrayDay[current][1];
-            wordDataList.add(new SampleData(R.drawable.dot, EnglishWord));
+            KorWord = WordListView.arrayDay[current][2];
+            wordDataList.add(new SampleData(R.drawable.dot, EnglishWord, KorWord));
         }
     }
 }

@@ -96,6 +96,7 @@ android:background="#FFF1EF">
                 android:layout_marginRight="200dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/prev"/>
+
             <ImageButton
                 android:id="@+id/mean_next_btn"
                 android:layout_width="wrap_content"

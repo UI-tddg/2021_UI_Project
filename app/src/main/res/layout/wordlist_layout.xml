@@ -31,16 +31,27 @@
             android:layout_height="41dp"
             android:orientation="vertical"
             >
-
-            <TextView
-                android:id="@+id/EnglishWord"
+            <FrameLayout
                 android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/EngWord"
+                android:layout_width="165dp"
                 android:layout_height="match_parent"
-                android:text="TextView"
-                android:textSize="15dp"
-                android:paddingTop = "9dp"
                 android:layout_marginLeft="8dp"
-                />
+                android:paddingTop="9dp"
+                android:text="EngWord"
+                android:textSize="15dp" />
+
+                <TextView
+                    android:id="@+id/KorWord"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="150dp"
+                    android:paddingTop="9dp"
+                    android:text="KorWord"
+                    android:textSize="15dp" />
+            </FrameLayout>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

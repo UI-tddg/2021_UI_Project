@@ -1,8 +1,6 @@
 package com.example.myapplication222;
 
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -14,12 +12,10 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-//TODO : 제출 버튼 누르고 맞으면 답안 텍스트 지우기
-//TODO : 위에 추천어 안 나오는 키보드로
-
-public class SpellingTest extends AppCompatActivity implements View.OnClickListener {
-
+public class RetestSpellTest extends AppCompatActivity implements View.OnClickListener {
     private TextView spelling_test_kor;
     private TextView spelling_test_hint;
     private EditText spelling_test_eng;
@@ -31,12 +27,17 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
     private ImageButton star_btn;
     private ImageButton colorStar_btn;
 
+    private int wrong;
+    private int total;
+
     private int current=0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.spelling_test);
+
+        total=RetestSellect.retestarr.length;
 
         spelling_test_submit_btn = findViewById(R.id.spelling_test_submit_btn);
         spelling_test_submit_btn.setOnClickListener(this);
@@ -48,10 +49,10 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
         spelling_test_pass_btn.setOnClickListener(this);
 
         spelling_test_hint = findViewById(R.id.spelling_test_hint);
-        spelling_test_hint.setText(WordListView.arrayDay[current][1]);
+        spelling_test_hint.setText(RetestSellect.retestarr[current][1]);
 
         spelling_test_kor = findViewById(R.id.spelling_test_kor);
-        spelling_test_kor.setText(WordListView.arrayDay[current][2]);
+        spelling_test_kor.setText(RetestSellect.retestarr[current][2]);
 
         spelling_test_eng = findViewById(R.id.spelling_test_eng);
 
@@ -64,7 +65,7 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
         colorStar_btn = (ImageButton) findViewById(R.id.colorStar_btn);
         colorStar_btn.setOnClickListener(this);
 
-        if(Integer.parseInt(WordListView.arrayDay[current][5])==1 ){    //중요단어라면 칠해진 별인 채로 출력
+        if(Integer.parseInt(RetestSellect.retestarr[current][5])==1 ){    //중요단어라면 칠해진 별인 채로 출력
             colorStar_btn.setVisibility(View.VISIBLE);
         }
         MySoundPlayer.initSounds(getApplicationContext());
@@ -74,28 +75,36 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view == star_btn) {
             colorStar_btn.setVisibility(View.VISIBLE);
-            updateStar(WordListView.arrayDay[(current-1)][1], 1);  //중요단어 체크
+            updateStar(RetestSellect.retestarr[(current-1)][1], 1);  //중요단어 체크
         }
         if (view == colorStar_btn) {
             colorStar_btn.setVisibility(View.INVISIBLE);
-            updateStar(WordListView.arrayDay[(current-1)][1], 0);  //중요단어 해제
+            updateStar(RetestSellect.retestarr[(current-1)][1], 0);  //중요단어 해제
         }
         if (view == spelling_test_kor) {
             setText();
         }
         if (view == spelling_test_submit_btn) {
-            if (spelling_test_eng.getText().toString().equals(WordListView.arrayDay[current][1])) {
+            if (spelling_test_eng.getText().toString().equals(RetestSellect.retestarr[current][1])) {
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 Animation correct = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
                 spelling_test_correct.startAnimation(correct);
+                updateNope(RetestSellect.retestarr[(current-1)][1], 0); //맞았을때 0으로
                 current++;
+                wrong++;
+                if(current==RetestSellect.retestarr.length){
+                    Intent intent = new Intent(getApplicationContext(), FinishTest.class);
+                    intent.putExtra("wrong",wrong);
+                    intent.putExtra("total",total);
+                    startActivity(intent);
+                    finish();
+                }
                 setText();
             }
             else {
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 Animation fail = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
                 spelling_test_wrong.startAnimation(fail);
-                updateNope(WordListView.arrayDay[(current-1)][1], 1);
             }
         }
         if (view == spelling_test_hint_btn) {
@@ -108,28 +117,34 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
             MySoundPlayer.play(MySoundPlayer.FAIL);
             Animation fail = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
             spelling_test_wrong.startAnimation(fail);
-            updateNope(WordListView.arrayDay[(current-1)][1], 1);
             current++;
+            if(current==RetestSellect.retestarr.length){
+                Intent intent = new Intent(getApplicationContext(), FinishTest.class);
+                intent.putExtra("wrong",wrong);
+                intent.putExtra("total",total);
+                startActivity(intent);
+                finish();
+            }
             setText();
             spelling_test_pass_btn.setVisibility(View.INVISIBLE);
             spelling_test_hint_btn.setVisibility(View.VISIBLE);
         }
         if (view == star_btn) {
             star_btn.setVisibility(View.VISIBLE);
-            updateStar(WordListView.arrayDay[(current-1)][1], 1);  //중요단어 체크
+            updateStar(RetestSellect.retestarr[(current-1)][1], 1);  //중요단어 체크
         }
         if (view == colorStar_btn) {
             colorStar_btn.setVisibility(View.INVISIBLE);
-            updateStar(WordListView.arrayDay[(current-1)][1], 0);  //중요단어 해제
+            updateStar(RetestSellect.retestarr[(current-1)][1], 0);  //중요단어 해제
         }
     }
 
     private void setText() {
-        spelling_test_kor.setText(WordListView.arrayDay[current][2]);
-        spelling_test_hint.setText(WordListView.arrayDay[current][1]);
+        spelling_test_kor.setText(RetestSellect.retestarr[current][2]);
+        spelling_test_hint.setText(RetestSellect.retestarr[current][1]);
         spelling_test_eng.setText(null);
 
-        if (Integer.parseInt(WordListView.arrayDay[current][5])==1){    //중요단어라면 칠해진 별인 채로 출력
+        if (Integer.parseInt(RetestSellect.retestarr[current][5])==1){    //중요단어라면 칠해진 별인 채로 출력
             colorStar_btn.setVisibility(View.VISIBLE);
         }else{
             colorStar_btn.setVisibility(View.INVISIBLE);
@@ -137,7 +152,7 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
     }
     private void updateStar(String eng, int star) {
         //배열 값 변경
-        WordListView.arrayDay[(current-1)][5]=Integer.toString(star);
+        RetestSellect.retestarr[(current-1)][5]=Integer.toString(star);
 
         //db 값 변경
         DBHelper helper = new DBHelper(this);
@@ -149,7 +164,7 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
 
     private void updateNope(String eng, int nope) {
         //배열 값 변경
-        WordListView.arrayDay[(current-1)][6]=Integer.toString(nope);
+        RetestSellect.retestarr[(current-1)][6]=Integer.toString(nope);
 
         //db 값 변경
         DBHelper helper = new DBHelper(this);

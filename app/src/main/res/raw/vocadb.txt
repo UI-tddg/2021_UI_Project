@@ -58,3 +58,43 @@ demand-요구하다-[dɪˈmænd]-3
 supply-공급하다, 제공하다-[səˈplaɪ]-3
 quantity-양, 수량-[│kwɑːntəti]-3
 quality-질, 양질-[│kwɑːləti]-3
+suppose-가정하다, 추측하다-[səˈpoʊz]-4
+slight-약간의, 조금의-[slaɪt]-4
+resource-자원; 자산, 자료-[|riːsɔːrs; rɪ│sɔːrs]-4
+pronounce-발음하다: 표명하다-[prəˈnaʊns]-4
+superstition-미신-[|suːpər│stɪʃn]-4
+distinctive-독특한, 구별되는-[dɪˈstɪŋktɪv]-4
+overlook-간과하다; 내려다보다-[ˌoʊvərˈlʊk]-4
+tangle-헝클어지다; 얽힌 것-[ˈtæŋɡl]-4
+leap-껑충 뛰다; 도약; 급등-[liːp]-4
+courage-용기-[|kɜːrɪdʒ]-4
+option-선택(권); 선택 과목-[|ɑːpʃn]-4
+expose-드러내다, 노출시키다-[ɪkˈspoʊz]-4
+concern-걱정하게 만들다-[kən|sɜːrn]-4
+titanic-거대한, 강력한-[taɪˈtænɪk]-4
+afford-(~할 금전적, 시간적) 여유가 있다-[əˈfɔːrd]-4
+observe-관찰하다; 준수하다-[əbˈzɜːrv]-4
+prompt-촉발[촉구]하다-[prɑːmpt]-4
+inexcusable-변명의 여지가 없는-[ˌɪnɪkˈskjuːzəbl]-4
+lean-몸을 숙이다; 기대다-[liːn]-4
+funeral-장례식-[ˈfjuːnərəl]-4
+essential-필수적인; 본질적인-[ɪˈsenʃl]-5
+deference-존경[경의]를 표하는 행동-[ˈdefərəns]-5
+contrary-반대의; 반대되는 것-[ˈkɑːntreri]-5
+architect-건축가; 설계자-[│ɑːrkɪtekt]-5
+criminal-범죄자; 범죄의-[ˈkrɪmɪnl]-5
+explore-탐험하다-[ɪkˈsplɔː(r)]-5
+career-직업; 경력-[kəˈrɪr]-5
+carrier-소송[운송]회사; 항공 모함-[ˈkæriə(r)]-5
+offense-위반; 무례; 공격-[əˈfens]-5
+defense-방어; 변호; 수비-[diféns]-5
+addict-중독자-[ˈædɪkt]-5
+handle-다루다; 손잡이-[ˈhændl]-5
+trait-(신체적, 성격적) 특성, 특징-[treɪt]-5
+construct-건설하다, 구성하다-[kənˈstrʌkʃn]-5
+majority-대부분, 다수-[mə│dʒɒrəti]-5
+demolish-(건물을)철거하다; (이론을)뒤집다-[dɪ│mɑːlɪʃ]-5
+duration-지속 시간[기간]-[du│reɪʃn]-5
+complete-완료하다; 완전한-[kəmˈpliːt]-5
+process-과정, 절차; 처리하다-[│proʊses]-5
+downfall-몰락, 파멸; 몰락의 원인-[ˈdaʊnfɔːl]-5

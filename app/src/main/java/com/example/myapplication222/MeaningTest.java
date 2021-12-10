@@ -31,7 +31,8 @@ public class MeaningTest extends AppCompatActivity implements View.OnClickListen
     private int current=0;
     private ImageView correct_img;
     private ImageView wrong_img;
-    private int total=0;
+    private int wrong=0;
+    private int total=20;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -170,9 +171,10 @@ public class MeaningTest extends AppCompatActivity implements View.OnClickListen
         Animation correct = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
         correct_img.startAnimation(correct);
         current++;
-        total++;
+        wrong++;
         if(current==20){
             Intent intent = new Intent(getApplicationContext(), FinishTest.class);
+            intent.putExtra("wrong",wrong);
             intent.putExtra("total",total);
             startActivity(intent);
             finish();
@@ -191,6 +193,7 @@ public class MeaningTest extends AppCompatActivity implements View.OnClickListen
         current++;
         if(current==20){
             Intent intent = new Intent(getApplicationContext(), FinishTest.class);
+            intent.putExtra("wrong", wrong);
             intent.putExtra("total",total);
             startActivity(intent);
             finish();
