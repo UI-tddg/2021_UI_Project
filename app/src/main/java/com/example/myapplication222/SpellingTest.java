@@ -146,11 +146,7 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
         if (Integer.parseInt(WordListView.arrayDay[current][5])==1){    //중요단어라면 칠해진 별인 채로 출력
             colorStar_btn.setVisibility(View.VISIBLE);
         }
-        else if(Integer.parseInt(WordListView.arrayDay[current][6])==1){
-            colorStar_btn.setVisibility(View.VISIBLE);
-        }
-        else
-            {
+        else {
             colorStar_btn.setVisibility(View.INVISIBLE);
         }
     }
