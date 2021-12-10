@@ -26,6 +26,8 @@ public class RetestSpellTest extends AppCompatActivity implements View.OnClickLi
     private ImageView spelling_test_wrong;
     private ImageButton star_btn;
     private ImageButton colorStar_btn;
+
+    private int wrong;
     private int total;
 
     private int current=0;
@@ -34,6 +36,8 @@ public class RetestSpellTest extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.spelling_test);
+
+        total=RetestSellect.retestarr.length;
 
         spelling_test_submit_btn = findViewById(R.id.spelling_test_submit_btn);
         spelling_test_submit_btn.setOnClickListener(this);
@@ -87,9 +91,10 @@ public class RetestSpellTest extends AppCompatActivity implements View.OnClickLi
                 spelling_test_correct.startAnimation(correct);
                 updateNope(RetestSellect.retestarr[(current-1)][1], 0); //맞았을때 0으로
                 current++;
-                total++;
+                wrong++;
                 if(current==RetestSellect.retestarr.length){
                     Intent intent = new Intent(getApplicationContext(), FinishTest.class);
+                    intent.putExtra("wrong",wrong);
                     intent.putExtra("total",total);
                     startActivity(intent);
                     finish();
@@ -113,6 +118,13 @@ public class RetestSpellTest extends AppCompatActivity implements View.OnClickLi
             Animation fail = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
             spelling_test_wrong.startAnimation(fail);
             current++;
+            if(current==RetestSellect.retestarr.length){
+                Intent intent = new Intent(getApplicationContext(), FinishTest.class);
+                intent.putExtra("wrong",wrong);
+                intent.putExtra("total",total);
+                startActivity(intent);
+                finish();
+            }
             setText();
             spelling_test_pass_btn.setVisibility(View.INVISIBLE);
             spelling_test_hint_btn.setVisibility(View.VISIBLE);

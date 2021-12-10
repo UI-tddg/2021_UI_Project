@@ -10,9 +10,8 @@ import android.widget.TextView;
 
 public class FinishTest extends AppCompatActivity {
 
-    private int total_correct;
     private TextView correct;
-    private TextView wrong;
+    private TextView wrongTxT;
     private Button go_List;
 
     @Override
@@ -20,10 +19,11 @@ public class FinishTest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.finish_test);
 
-        total_correct=getIntent().getExtras().getInt("total");
+        int total=getIntent().getExtras().getInt("total");
+        int wrong=getIntent().getExtras().getInt("wrong");
 
         correct=(TextView) findViewById(R.id.total_correct);
-        wrong=(TextView) findViewById(R.id.total_wrong);
+        wrongTxT=(TextView) findViewById(R.id.total_wrong);
 
         go_List=(Button)findViewById(R.id.finish_test_btn);
         go_List.setOnClickListener(new View.OnClickListener() {
@@ -34,7 +34,7 @@ public class FinishTest extends AppCompatActivity {
             }
         });
 
-        correct.setText("맞은 개수: "+total_correct+"/20");
-        wrong.setText("틀린 개수: "+(20-total_correct)+"/20");
+        correct.setText("맞은 개수: "+wrong+"/"+total);
+        wrongTxT.setText("틀린 개수: "+(total-wrong)+"/"+total);
     }
 }
