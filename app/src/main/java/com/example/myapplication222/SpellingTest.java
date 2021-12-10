@@ -77,7 +77,7 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view == star_btn) {
             colorStar_btn.setVisibility(View.VISIBLE);
-            updateStar(WordListView.arrayDay[(current)][1], 1);  //중요단어 체크
+            updateStar(WordListView.arrayDay[(current)][1], 1);
         }
         if (view == colorStar_btn) {
             colorStar_btn.setVisibility(View.INVISIBLE);
@@ -106,7 +106,8 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 Animation fail = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
                 spelling_test_wrong.startAnimation(fail);
-                updateStar(WordListView.arrayDay[(current)][1], 1);
+                updateNope(WordListView.arrayDay[(current)][1], 1);
+                colorStar_btn.setVisibility(View.VISIBLE);
             }
         }
         if (view == spelling_test_hint_btn) {
@@ -119,8 +120,8 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
             MySoundPlayer.play(MySoundPlayer.FAIL);
             Animation fail = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
             spelling_test_wrong.startAnimation(fail);
-            current++;  //순서
-            updateStar(WordListView.arrayDay[(current)][1], 1);
+            current++;  //순
+            updateNope(WordListView.arrayDay[(current-1)][1], 1);
 
             if(current==20){
                 Intent intent = new Intent(getApplicationContext(), FinishTest.class);
@@ -144,13 +145,18 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
 
         if (Integer.parseInt(WordListView.arrayDay[current][5])==1){    //중요단어라면 칠해진 별인 채로 출력
             colorStar_btn.setVisibility(View.VISIBLE);
-        }else{
+        }
+        else if(Integer.parseInt(WordListView.arrayDay[current][6])==1){
+            colorStar_btn.setVisibility(View.VISIBLE);
+        }
+        else
+            {
             colorStar_btn.setVisibility(View.INVISIBLE);
         }
     }
     private void updateStar(String eng, int star) {
         //배열 값 변경
-        WordListView.arrayDay[(current-1)][5]=Integer.toString(star);
+        WordListView.arrayDay[(current)][5]=Integer.toString(star);
 
         //db 값 변경
         DBHelper helper = new DBHelper(this);
