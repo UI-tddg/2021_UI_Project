@@ -19,7 +19,7 @@ public class RetestSellect extends AppCompatActivity implements View.OnClickList
     public static String[][] retestarr;
     Button mem_btn;
     Button retest_btn;
-    int wordnum;
+    static int wordnum;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -76,7 +76,7 @@ public class RetestSellect extends AppCompatActivity implements View.OnClickList
                 if(wordnum==0){
                     Toast.makeText(this,"틀린단어가 없습니다.",Toast.LENGTH_LONG).show();
                 }else {
-                    Intent intent = new Intent(getApplicationContext(), TestSellect.class);
+                    Intent intent = new Intent(getApplicationContext(), RetestTestSellect.class);
                     startActivity(intent);
                 }
             }
