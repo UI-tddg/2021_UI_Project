@@ -77,11 +77,11 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view == star_btn) {
             colorStar_btn.setVisibility(View.VISIBLE);
-            updateStar(WordListView.arrayDay[(current-1)][1], 1);  //중요단어 체크
+            updateStar(WordListView.arrayDay[(current)][1], 1);  //중요단어 체크
         }
         if (view == colorStar_btn) {
             colorStar_btn.setVisibility(View.INVISIBLE);
-            updateStar(WordListView.arrayDay[(current-1)][1], 0);  //중요단어 해제
+            updateStar(WordListView.arrayDay[(current)][1], 0);  //중요단어 해제
         }
         if (view == spelling_test_kor) {
             setText();
@@ -106,7 +106,7 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 Animation fail = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
                 spelling_test_wrong.startAnimation(fail);
-                updateNope(WordListView.arrayDay[(current-1)][1], 1);
+                updateStar(WordListView.arrayDay[(current)][1], 1);
             }
         }
         if (view == spelling_test_hint_btn) {
@@ -119,8 +119,9 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
             MySoundPlayer.play(MySoundPlayer.FAIL);
             Animation fail = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
             spelling_test_wrong.startAnimation(fail);
-            updateNope(WordListView.arrayDay[(current-1)][1], 1);
-            current++;
+            current++;  //순서
+            updateStar(WordListView.arrayDay[(current)][1], 1);
+
             if(current==20){
                 Intent intent = new Intent(getApplicationContext(), FinishTest.class);
                 intent.putExtra("wrong",wrong);
@@ -128,18 +129,12 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
                 finish();
             }
+
             setText();
             spelling_test_pass_btn.setVisibility(View.INVISIBLE);
             spelling_test_hint_btn.setVisibility(View.VISIBLE);
         }
-        if (view == star_btn) {
-            star_btn.setVisibility(View.VISIBLE);
-            updateStar(WordListView.arrayDay[(current-1)][1], 1);  //중요단어 체크
-        }
-        if (view == colorStar_btn) {
-            colorStar_btn.setVisibility(View.INVISIBLE);
-            updateStar(WordListView.arrayDay[(current-1)][1], 0);  //중요단어 해제
-        }
+
     }
 
     private void setText() {
@@ -167,7 +162,7 @@ public class SpellingTest extends AppCompatActivity implements View.OnClickListe
 
     private void updateNope(String eng, int nope) {
         //배열 값 변경
-        WordListView.arrayDay[(current-1)][6]=Integer.toString(nope);
+        WordListView.arrayDay[(current)][6]=Integer.toString(nope);
 
         //db 값 변경
         DBHelper helper = new DBHelper(this);
