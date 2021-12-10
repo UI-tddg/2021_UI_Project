@@ -36,76 +36,77 @@
         android:layout_marginRight="50dp" />
 
     <TableLayout
-        android:layout_width="400dp"
+        android:layout_width="match_parent"
         android:layout_height="465dp"
         android:layout_gravity="bottom|center"
         android:stretchColumns="0,1">
         <TableRow>
             <Button
+                android:id="@+id/first_left"
                 android:padding="30dp"
                 android:text="word2"
-                android:background="@drawable/matching_btn_layout"
                 style="@style/Widget.AppCompat.Button.Borderless">
             </Button>
             <Button
+                android:id="@+id/first_right"
                 android:padding="30dp"
                 android:text="mean2"
-                android:background="@drawable/matching_btn_layout"
                 style="@style/Widget.AppCompat.Button.Borderless">
             </Button>
         </TableRow>
         <TableRow>
             <Button
+                android:id="@+id/second_left"
                 android:padding="30dp"
                 android:text="word2"
-                android:background="@drawable/matching_btn_layout"
                 style="@style/Widget.AppCompat.Button.Borderless">
             </Button>
             <Button
+                android:id="@+id/second_right"
                 android:padding="30dp"
                 android:text="mean2"
-                android:background="@drawable/matching_btn_layout"
                 style="@style/Widget.AppCompat.Button.Borderless">
             </Button>
-        </TableRow><TableRow>
+        </TableRow>
+        <TableRow>
         <Button
+            android:id="@+id/third_left"
             android:padding="30dp"
             android:text="word2"
-            android:background="@drawable/matching_btn_layout"
             style="@style/Widget.AppCompat.Button.Borderless">
         </Button>
         <Button
+            android:id="@+id/third_right"
             android:padding="30dp"
             android:text="mean2"
-            android:background="@drawable/matching_btn_layout"
             style="@style/Widget.AppCompat.Button.Borderless">
         </Button>
     </TableRow>
         <TableRow>
             <Button
+                android:id="@+id/fourth_left"
                 android:padding="30dp"
                 android:text="word2"
-                android:background="@drawable/matching_btn_layout"
                 style="@style/Widget.AppCompat.Button.Borderless">
             </Button>
             <Button
+                android:id="@+id/fourth_right"
                 android:padding="30dp"
                 android:text="mean2"
-                android:background="@drawable/matching_btn_layout"
                 style="@style/Widget.AppCompat.Button.Borderless">
             </Button>
         </TableRow>
         <TableRow>
             <Button
+                android:id="@+id/fifth_left"
                 android:padding="30dp"
                 android:text="word2"
-                android:background="@drawable/matching_btn_layout"
                 style="@style/Widget.AppCompat.Button.Borderless">
             </Button>
             <Button
+                android:id="@+id/fifth_right"
                 android:padding="30dp"
                 android:text="mean2"
-                android:background="@drawable/matching_btn_layout"
                 style="@style/Widget.AppCompat.Button.Borderless">
             </Button>
         </TableRow>
