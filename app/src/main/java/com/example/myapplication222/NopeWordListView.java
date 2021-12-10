@@ -41,14 +41,17 @@ public class NopeWordListView extends AppCompatActivity {
         else if (id==R.id.day_word_list){
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
+            finish();
         }
         else if (id==R.id.star_word_list){
             Intent intent = new Intent(this, StarWordListView.class);
             startActivity(intent);
+            finish();
         }
         else if (id==R.id.nope_word_list){
             Intent intent = new Intent(this, NopeWordListView.class);
             startActivity(intent);
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }
