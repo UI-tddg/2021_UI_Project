@@ -24,11 +24,12 @@ public class RetestMeaningTest extends AppCompatActivity implements View.OnClick
     private Button sellect3;
     private Button sellect4;
     private int answer_num;
-    private int current=0;
     private ImageView correct_img;
     private ImageView wrong_img;
+
     private int wrong;
-    private int total=0;
+    private int total;
+    private int current=0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -37,24 +38,24 @@ public class RetestMeaningTest extends AppCompatActivity implements View.OnClick
 
         total = RetestSellect.retestarr.length;
 
-        meantest_eng=(TextView)findViewById(R.id.meantest_eng);
+        meantest_eng=findViewById(R.id.meantest_eng);
 
-        star_btn=(ImageButton)findViewById(R.id.mean_star_btn);
+        star_btn=findViewById(R.id.mean_star_btn);
         star_btn.setOnClickListener(this);
 
-        colorstar_btn=(ImageButton)findViewById(R.id.mean_colorstar_btn);
+        colorstar_btn=findViewById(R.id.mean_colorstar_btn);
         colorstar_btn.setOnClickListener(this);
 
-        sellect1=(Button) findViewById(R.id.meantest_kor_btn1);
+        sellect1=findViewById(R.id.meantest_kor_btn1);
         sellect1.setOnClickListener(this);
 
-        sellect2=(Button) findViewById(R.id.meantest_kor_btn2);
+        sellect2=findViewById(R.id.meantest_kor_btn2);
         sellect2.setOnClickListener(this);
 
-        sellect3=(Button) findViewById(R.id.meantest_kor_btn3);
+        sellect3=findViewById(R.id.meantest_kor_btn3);
         sellect3.setOnClickListener(this);
 
-        sellect4=(Button) findViewById(R.id.meantest_kor_btn4);
+        sellect4=findViewById(R.id.meantest_kor_btn4);
         sellect4.setOnClickListener(this);
 
         correct_img=findViewById(R.id.mean_test_correct);
@@ -119,7 +120,7 @@ public class RetestMeaningTest extends AppCompatActivity implements View.OnClick
         int[] num = {-1,-1,-1};
         //랜덤 수 뽑기
         for(int i=0; i<3;){
-            int tmp=(int)(Math.random()*20); //랜덤
+            int tmp=(int)(Math.random()*total); //랜덤
             if(tmp!=current){
                 for(int k=0; k<3; k++){
                     if(num[k]==tmp)
