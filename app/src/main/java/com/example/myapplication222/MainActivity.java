@@ -96,28 +96,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-//        Button day6_btn = (Button) findViewById(R.id.day6);
-//        day6_btn.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View view) {
-//
-//                Intent intent = new Intent(getApplicationContext(), WordListView.class);
-//                intent.putExtra("day",6);
-//
-//                startActivity(intent);
-//            }
-//        });
-//        Button day7_btn = (Button) findViewById(R.id.day7);
-//        day7_btn.setOnClickListener(new View.OnClickListener() {
-//
-//            public void onClick(View view) {
-//
-//                Intent intent = new Intent(getApplicationContext(), WordListView.class);
-//                intent.putExtra("day",7);
-//
-//                startActivity(intent);
-//            }
-//        });
+
     }
 
     @Override
