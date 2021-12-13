@@ -8,12 +8,16 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TextView;
 import android.os.Bundle;
+
+import org.w3c.dom.Text;
+
 import java.util.Random;
 
 public class MatchingGame extends AppCompatActivity implements View.OnClickListener {
 
     TextView timer;
     TextView success;
+    TextView counting_score;
     TableLayout tableLayout;
     private Button first_left, second_left, third_left, fourth_left, fifth_left;
     private Button first_right, second_right, third_right, fourth_right, fifth_right;
@@ -57,6 +61,8 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
 
         timer = findViewById(R.id.timer);
         success = findViewById(R.id.success);
+        counting_score = findViewById(R.id.countingScore);
+        counting_score.setText("0");
         tableLayout = findViewById(R.id.tableLayout);
 
         CountDownTimer countDownTimer = new CountDownTimer(100000, 1000) {
@@ -201,14 +207,13 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         if (first_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFirstL - 1] == kor[checkFirstR - 1]) {
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                if (engCurrent != 20) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));                if (engCurrent != 20) {
                     setFirstL();
                     setFirstR();
                     first_left.setVisibility(View.VISIBLE);
                     first_right.setVisibility(View.VISIBLE);
                 } else {
                     if (eng[checkFirstL - 1] == kor[checkFirstR - 1]) {
-                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
                         first_left.setText("이 칸의 마지막입니다.");
                         first_right.setText("이 칸의 마지막입니다.");
                         first_left.setVisibility(View.VISIBLE);
@@ -218,6 +223,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 first_left.setVisibility(View.VISIBLE);
                 first_right.setVisibility(View.VISIBLE);
@@ -225,7 +231,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (first_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFirstL - 1] == kor[checkSecondR - 1]) {
-                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));                MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFirstL();
                     setSecondR();
@@ -233,7 +239,6 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     second_right.setVisibility(View.VISIBLE);
                 } else {
                     if (eng[checkFirstL - 1] == kor[checkSecondR - 1]) {
-                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
                         first_left.setText("이 칸의 마지막입니다.");
                         second_right.setText("이 칸의 마지막입니다.");
                         first_left.setVisibility(View.VISIBLE);
@@ -243,6 +248,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 first_left.setVisibility(View.VISIBLE);
                 second_right.setVisibility(View.VISIBLE);
@@ -250,7 +256,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (first_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFirstL - 1] == kor[checkThirdR - 1]) {
-                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));                MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFirstL();
                     setThirdR();
@@ -258,7 +264,6 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     third_right.setVisibility(View.VISIBLE);
                 } else {
                     if (eng[checkFirstL - 1] == kor[checkThirdR - 1]) {
-                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
                         first_left.setText("이 칸의 마지막입니다.");
                         third_right.setText("이 칸의 마지막입니다.");
                         first_left.setVisibility(View.VISIBLE);
@@ -268,6 +273,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 first_left.setVisibility(View.VISIBLE);
                 third_right.setVisibility(View.VISIBLE);
@@ -275,7 +281,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (first_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFirstL - 1] == kor[checkFourthR - 1]) {
-                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));                MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFirstL();
                     setFourthR();
@@ -283,7 +289,6 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     fourth_right.setVisibility(View.VISIBLE);
                 } else {
                     if (eng[checkFirstL - 1] == kor[checkFourthR - 1]) {
-                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
                         first_left.setText("이 칸의 마지막입니다.");
                         fourth_right.setText("이 칸의 마지막입니다.");
                         first_left.setVisibility(View.VISIBLE);
@@ -293,6 +298,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 first_left.setVisibility(View.VISIBLE);
                 fourth_right.setVisibility(View.VISIBLE);
@@ -300,6 +306,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (first_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFirstL - 1] == kor[checkFifthR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFirstL();
@@ -318,6 +325,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 first_left.setVisibility(View.VISIBLE);
                 fifth_right.setVisibility(View.VISIBLE);
@@ -325,6 +333,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (second_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkSecondL - 1] == kor[checkFirstR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setSecondL();
@@ -343,6 +352,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 second_left.setVisibility(View.VISIBLE);
                 first_right.setVisibility(View.VISIBLE);
@@ -350,6 +360,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (second_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkSecondL - 1] == kor[checkSecondR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setSecondL();
@@ -368,6 +379,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 second_left.setVisibility(View.VISIBLE);
                 second_right.setVisibility(View.VISIBLE);
@@ -375,6 +387,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (second_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkSecondL - 1] == kor[checkThirdR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setSecondL();
@@ -393,6 +406,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 second_left.setVisibility(View.VISIBLE);
                 third_right.setVisibility(View.VISIBLE);
@@ -400,6 +414,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (second_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkSecondL - 1] == kor[checkFourthR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setSecondL();
@@ -418,6 +433,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 second_left.setVisibility(View.VISIBLE);
                 fourth_right.setVisibility(View.VISIBLE);
@@ -425,6 +441,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (second_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkSecondL - 1] == kor[checkFifthR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setSecondL();
@@ -443,6 +460,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 second_left.setVisibility(View.VISIBLE);
                 fifth_right.setVisibility(View.VISIBLE);
@@ -450,6 +468,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (third_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkThirdL - 1] == kor[checkFirstR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setThirdL();
@@ -468,6 +487,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 third_left.setVisibility(View.VISIBLE);
                 first_right.setVisibility(View.VISIBLE);
@@ -475,6 +495,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (third_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkThirdL - 1] == kor[checkSecondR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setThirdL();
@@ -493,6 +514,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 third_left.setVisibility(View.VISIBLE);
                 second_right.setVisibility(View.VISIBLE);
@@ -500,6 +522,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (third_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkThirdL - 1] == kor[checkThirdR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setThirdL();
@@ -518,6 +541,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 third_left.setVisibility(View.VISIBLE);
                 third_right.setVisibility(View.VISIBLE);
@@ -525,6 +549,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (third_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkThirdL - 1] == kor[checkFourthR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setThirdL();
@@ -543,6 +568,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 third_left.setVisibility(View.VISIBLE);
                 fourth_right.setVisibility(View.VISIBLE);
@@ -550,6 +576,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (third_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkThirdL - 1] == kor[checkFifthR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setThirdL();
@@ -568,6 +595,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 third_left.setVisibility(View.VISIBLE);
                 fifth_right.setVisibility(View.VISIBLE);
@@ -575,6 +603,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (fourth_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFourthL - 1] == kor[checkFirstR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFourthL();
@@ -593,6 +622,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 fourth_left.setVisibility(View.VISIBLE);
                 first_right.setVisibility(View.VISIBLE);
@@ -600,6 +630,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (fourth_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFourthL - 1] == kor[checkSecondR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFourthL();
@@ -618,6 +649,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 fourth_left.setVisibility(View.VISIBLE);
                 second_right.setVisibility(View.VISIBLE);
@@ -625,6 +657,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (fourth_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFourthL - 1] == kor[checkThirdR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFourthL();
@@ -643,6 +676,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 fourth_left.setVisibility(View.VISIBLE);
                 third_right.setVisibility(View.VISIBLE);
@@ -650,6 +684,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (fourth_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFourthL - 1] == kor[checkFourthR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFourthL();
@@ -668,6 +703,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 fourth_left.setVisibility(View.VISIBLE);
                 fourth_right.setVisibility(View.VISIBLE);
@@ -675,6 +711,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (fourth_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFourthL - 1] == kor[checkFifthR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFourthL();
@@ -693,6 +730,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 fourth_left.setVisibility(View.VISIBLE);
                 fifth_right.setVisibility(View.VISIBLE);
@@ -700,6 +738,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (fifth_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFifthL - 1] == kor[checkFirstR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFifthL();
@@ -718,6 +757,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 fifth_left.setVisibility(View.VISIBLE);
                 first_right.setVisibility(View.VISIBLE);
@@ -725,6 +765,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (fifth_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFifthL - 1] == kor[checkSecondR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFifthL();
@@ -743,6 +784,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 fifth_left.setVisibility(View.VISIBLE);
                 second_right.setVisibility(View.VISIBLE);
@@ -750,6 +792,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (fifth_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFifthL - 1] == kor[checkThirdR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFifthL();
@@ -768,6 +811,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 fifth_left.setVisibility(View.VISIBLE);
                 third_right.setVisibility(View.VISIBLE);
@@ -775,6 +819,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (fifth_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFifthL - 1] == kor[checkFourthR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFifthL();
@@ -793,6 +838,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 fifth_left.setVisibility(View.VISIBLE);
                 fourth_right.setVisibility(View.VISIBLE);
@@ -800,6 +846,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (fifth_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
             if (eng[checkFifthL - 1] == kor[checkFifthR - 1]) {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) + 100));
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 if (engCurrent != 20) {
                     setFifthL();
@@ -818,6 +865,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             } else {
+                counting_score.setText(Integer.toString(Integer.parseInt(counting_score.getText().toString()) - 50));
                 MySoundPlayer.play(MySoundPlayer.FAIL);
                 fifth_left.setVisibility(View.VISIBLE);
                 fifth_right.setVisibility(View.VISIBLE);
