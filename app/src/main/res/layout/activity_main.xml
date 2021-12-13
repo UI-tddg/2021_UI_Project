@@ -109,5 +109,4 @@
         android:text="Day 7"
         android:textSize="20dp"
         android:gravity="center|left" />
-
 </LinearLayout>
