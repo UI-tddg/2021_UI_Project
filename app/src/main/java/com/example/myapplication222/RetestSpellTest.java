@@ -75,11 +75,11 @@ public class RetestSpellTest extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         if (view == star_btn) {
             colorStar_btn.setVisibility(View.VISIBLE);
-            updateStar(RetestSellect.retestarr[(current-1)][1], 1);  //중요단어 체크
+            updateStar(RetestSellect.retestarr[(current)][1], 1);  //중요단어 체크
         }
         if (view == colorStar_btn) {
             colorStar_btn.setVisibility(View.INVISIBLE);
-            updateStar(RetestSellect.retestarr[(current-1)][1], 0);  //중요단어 해제
+            updateStar(RetestSellect.retestarr[(current)][1], 0);  //중요단어 해제
         }
         if (view == spelling_test_kor) {
             setText();
@@ -89,7 +89,7 @@ public class RetestSpellTest extends AppCompatActivity implements View.OnClickLi
                 MySoundPlayer.play(MySoundPlayer.SUCCESS);
                 Animation correct = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
                 spelling_test_correct.startAnimation(correct);
-                updateNope(RetestSellect.retestarr[(current-1)][1], 0); //맞았을때 0으로
+                updateNope(RetestSellect.retestarr[(current)][1], 0); //맞았을때 0으로
                 current++;
                 wrong++;
                 if(current==RetestSellect.retestarr.length){
@@ -152,7 +152,7 @@ public class RetestSpellTest extends AppCompatActivity implements View.OnClickLi
     }
     private void updateStar(String eng, int star) {
         //배열 값 변경
-        RetestSellect.retestarr[(current-1)][5]=Integer.toString(star);
+        RetestSellect.retestarr[(current)][5]=Integer.toString(star);
 
         //db 값 변경
         DBHelper helper = new DBHelper(this);
@@ -164,7 +164,7 @@ public class RetestSpellTest extends AppCompatActivity implements View.OnClickLi
 
     private void updateNope(String eng, int nope) {
         //배열 값 변경
-        RetestSellect.retestarr[(current-1)][6]=Integer.toString(nope);
+        RetestSellect.retestarr[(current)][6]=Integer.toString(nope);
 
         //db 값 변경
         DBHelper helper = new DBHelper(this);
