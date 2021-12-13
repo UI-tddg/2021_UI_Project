@@ -129,14 +129,6 @@ public class RetestSpellTest extends AppCompatActivity implements View.OnClickLi
             spelling_test_pass_btn.setVisibility(View.INVISIBLE);
             spelling_test_hint_btn.setVisibility(View.VISIBLE);
         }
-        if (view == star_btn) {
-            star_btn.setVisibility(View.VISIBLE);
-            updateStar(RetestSellect.retestarr[(current-1)][1], 1);  //중요단어 체크
-        }
-        if (view == colorStar_btn) {
-            colorStar_btn.setVisibility(View.INVISIBLE);
-            updateStar(RetestSellect.retestarr[(current-1)][1], 0);  //중요단어 해제
-        }
     }
 
     private void setText() {

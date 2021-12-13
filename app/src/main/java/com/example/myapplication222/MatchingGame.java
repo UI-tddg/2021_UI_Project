@@ -79,7 +79,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
             public void onFinish() {
                 timer.setText("00 : 00");
                 tableLayout.setVisibility(View.INVISIBLE);
-                success.setText("실패!");
+                success.setText(counting_score.getText() + "점");
                 success.setVisibility(View.VISIBLE);
             }
         }.start();
@@ -873,6 +873,7 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         }
         if (first_left.isEnabled() == false && second_left.isEnabled() == false && third_left.isEnabled() == false && fourth_left.isEnabled() == false && fifth_left.isEnabled() == false && first_right.isEnabled() == false && second_right.isEnabled() == false && third_right.isEnabled() == false && fourth_right.isEnabled() == false && fifth_right.isEnabled() == false) {
             tableLayout.setVisibility(View.INVISIBLE);
+            success.setText(counting_score.getText() + "점");
             success.setVisibility(View.VISIBLE);
         }
     }
