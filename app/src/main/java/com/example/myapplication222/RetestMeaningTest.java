@@ -73,13 +73,13 @@ public class RetestMeaningTest extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
-        if(view ==star_btn){
+        if(view ==star_btn) {
             colorstar_btn.setVisibility(View.VISIBLE);
-            update(5,1);
+            updateStar(RetestSellect.retestarr[(current)][1], 1);  //중요단어 체크
         }
         if(view==colorstar_btn){
             colorstar_btn.setVisibility(View.INVISIBLE);
-            update(5,0);
+            updateStar(RetestSellect.retestarr[(current)][1], 0);  //중요단어 해제
         }
         if(view==sellect1){
             if(answer_num==1){
@@ -169,6 +169,7 @@ public class RetestMeaningTest extends AppCompatActivity implements View.OnClick
         MySoundPlayer.play(MySoundPlayer.SUCCESS);
         Animation correct = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
         correct_img.startAnimation(correct);
+        updateNope(RetestSellect.retestarr[(current)][1], 0);
         current++;
         wrong++;
         if(current==RetestSellect.retestarr.length){
@@ -188,9 +189,9 @@ public class RetestMeaningTest extends AppCompatActivity implements View.OnClick
         MySoundPlayer.play(MySoundPlayer.FAIL);
         Animation correct = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.alpha);
         wrong_img.startAnimation(correct);
-        update(6,1); //배열 및 db 값 nope 부분 틀린단어로 업데이트
+        updateNope(RetestSellect.retestarr[(current)][1], 1);
         current++;
-        wrong++;
+//        wrong++;
         if(current==RetestSellect.retestarr.length){
             Intent intent = new Intent(getApplicationContext(), FinishTest.class);
             intent.putExtra("wrong", wrong);
@@ -204,23 +205,28 @@ public class RetestMeaningTest extends AppCompatActivity implements View.OnClick
         }
     }
 
-    //index-> 변경할 열, num->
-    private void update(int index, int num){
+
+    private void updateNope(String eng, int nope) {
         //배열 값 변경
-        RetestSellect.retestarr[current][index]=Integer.toString(num);
+        RetestSellect.retestarr[(current)][6]=Integer.toString(nope);
 
         //db 값 변경
         DBHelper helper = new DBHelper(this);
         SQLiteDatabase db = helper.getWritableDatabase();
         // 입력한 항목과 일치하는 행의 가격 정보 수정
-        //중요단어 체크일때
-        if(index==5){
-            db.execSQL("UPDATE tb_voca SET star=" + num + " WHERE eng='" + RetestSellect.retestarr[current][1] + "';");
-        }
-        //틀린단어 체크일때
-        if(index==6){
-            db.execSQL("UPDATE tb_voca SET nope=" + num + " WHERE eng='" + RetestSellect.retestarr[current][1] + "';");
-        }
+        db.execSQL("UPDATE tb_voca SET nope=" + nope + " WHERE eng='" + eng + "';");
+        db.close();
+    }
+
+    private void updateStar(String eng, int star) {
+        //배열 값 변경
+        RetestSellect.retestarr[(current)][5]=Integer.toString(star);
+
+        //db 값 변경
+        DBHelper helper = new DBHelper(this);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        // 입력한 항목과 일치하는 행의 가격 정보 수정
+        db.execSQL("UPDATE tb_voca SET star=" + star + " WHERE eng='" + eng + "';");
         db.close();
     }
 }
