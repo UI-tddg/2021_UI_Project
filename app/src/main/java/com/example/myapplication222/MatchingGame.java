@@ -72,6 +72,9 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onFinish() {
                 timer.setText("00 : 00");
+                tableLayout.setVisibility(View.INVISIBLE);
+                success.setText("실패!");
+                success.setVisibility(View.VISIBLE);
             }
         }.start();
 
@@ -194,640 +197,635 @@ public class MatchingGame extends AppCompatActivity implements View.OnClickListe
         if (view == fourth_right) fourth_right.setVisibility(View.INVISIBLE);
         if (view == fifth_right) fifth_right.setVisibility(View.INVISIBLE);
 
-        if (first_left.isEnabled() == false && second_left.isEnabled() == false && third_left.isEnabled() == false && fourth_left.isEnabled() == false && fifth_left.isEnabled() == false && first_right.isEnabled() == false && second_right.isEnabled() == false && third_right.isEnabled() == false && fourth_right.isEnabled() == false && fifth_right.isEnabled() == false) {
-           tableLayout.setVisibility(View.INVISIBLE);
-           success.setVisibility(View.VISIBLE);
+
+        if (first_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFirstL - 1] == kor[checkFirstR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFirstL();
+                    setFirstR();
+                    first_left.setVisibility(View.VISIBLE);
+                    first_right.setVisibility(View.VISIBLE);
+                } else {
+                    if (eng[checkFirstL - 1] == kor[checkFirstR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        first_left.setText("이 칸의 마지막입니다.");
+                        first_right.setText("이 칸의 마지막입니다.");
+                        first_left.setVisibility(View.VISIBLE);
+                        first_right.setVisibility(View.VISIBLE);
+                        first_left.setEnabled(false);
+                        first_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                first_left.setVisibility(View.VISIBLE);
+                first_right.setVisibility(View.VISIBLE);
+            }
         }
-        else {
-            if (first_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFirstL - 1] == kor[checkFirstR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFirstL();
-                        setFirstR();
-                        first_left.setVisibility(View.VISIBLE);
-                        first_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFirstL - 1] == kor[checkFirstR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            first_left.setText("이 칸의 마지막입니다.");
-                            first_right.setText("이 칸의 마지막입니다.");
-                            first_left.setVisibility(View.VISIBLE);
-                            first_right.setVisibility(View.VISIBLE);
-                            first_left.setEnabled(false);
-                            first_right.setEnabled(false);
-                        }
-                    }
-                } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
-                    first_left.setVisibility(View.VISIBLE);
-                    first_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (first_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFirstL - 1] == kor[checkSecondR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFirstL();
-                        setSecondR();
-                        first_left.setVisibility(View.VISIBLE);
-                        second_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFirstL - 1] == kor[checkSecondR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            first_left.setText("이 칸의 마지막입니다.");
-                            second_right.setText("이 칸의 마지막입니다.");
-                            first_left.setVisibility(View.VISIBLE);
-                            second_right.setVisibility(View.VISIBLE);
-                            first_left.setEnabled(false);
-                            second_right.setEnabled(false);
-                        }
-                    }
-                } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+        if (first_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFirstL - 1] == kor[checkSecondR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFirstL();
+                    setSecondR();
                     first_left.setVisibility(View.VISIBLE);
                     second_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (first_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFirstL - 1] == kor[checkThirdR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFirstL();
-                        setThirdR();
-                        first_left.setVisibility(View.VISIBLE);
-                        third_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFirstL - 1] == kor[checkThirdR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            first_left.setText("이 칸의 마지막입니다.");
-                            third_right.setText("이 칸의 마지막입니다.");
-                            first_left.setVisibility(View.VISIBLE);
-                            third_right.setVisibility(View.VISIBLE);
-                            first_left.setEnabled(false);
-                            third_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFirstL - 1] == kor[checkSecondR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        first_left.setText("이 칸의 마지막입니다.");
+                        second_right.setText("이 칸의 마지막입니다.");
+                        first_left.setVisibility(View.VISIBLE);
+                        second_right.setVisibility(View.VISIBLE);
+                        first_left.setEnabled(false);
+                        second_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                first_left.setVisibility(View.VISIBLE);
+                second_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (first_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFirstL - 1] == kor[checkThirdR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFirstL();
+                    setThirdR();
                     first_left.setVisibility(View.VISIBLE);
                     third_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (first_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFirstL - 1] == kor[checkFourthR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFirstL();
-                        setFourthR();
-                        first_left.setVisibility(View.VISIBLE);
-                        fourth_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFirstL - 1] == kor[checkFourthR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            first_left.setText("이 칸의 마지막입니다.");
-                            fourth_right.setText("이 칸의 마지막입니다.");
-                            first_left.setVisibility(View.VISIBLE);
-                            fourth_right.setVisibility(View.VISIBLE);
-                            first_left.setEnabled(false);
-                            fourth_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFirstL - 1] == kor[checkThirdR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        first_left.setText("이 칸의 마지막입니다.");
+                        third_right.setText("이 칸의 마지막입니다.");
+                        first_left.setVisibility(View.VISIBLE);
+                        third_right.setVisibility(View.VISIBLE);
+                        first_left.setEnabled(false);
+                        third_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                first_left.setVisibility(View.VISIBLE);
+                third_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (first_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFirstL - 1] == kor[checkFourthR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFirstL();
+                    setFourthR();
                     first_left.setVisibility(View.VISIBLE);
                     fourth_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (first_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFirstL - 1] == kor[checkFifthR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFirstL();
-                        setFifthR();
-                        first_left.setVisibility(View.VISIBLE);
-                        fifth_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFirstL - 1] == kor[checkFifthR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            first_left.setText("이 칸의 마지막입니다.");
-                            fifth_right.setText("이 칸의 마지막입니다.");
-                            first_left.setVisibility(View.VISIBLE);
-                            fifth_right.setVisibility(View.VISIBLE);
-                            first_left.setEnabled(false);
-                            fifth_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFirstL - 1] == kor[checkFourthR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        first_left.setText("이 칸의 마지막입니다.");
+                        fourth_right.setText("이 칸의 마지막입니다.");
+                        first_left.setVisibility(View.VISIBLE);
+                        fourth_right.setVisibility(View.VISIBLE);
+                        first_left.setEnabled(false);
+                        fourth_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                first_left.setVisibility(View.VISIBLE);
+                fourth_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (first_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFirstL - 1] == kor[checkFifthR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFirstL();
+                    setFifthR();
                     first_left.setVisibility(View.VISIBLE);
                     fifth_right.setVisibility(View.VISIBLE);
-                }
-            }
-
-            if (second_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkSecondL - 1] == kor[checkFirstR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setSecondL();
-                        setFirstR();
-                        second_left.setVisibility(View.VISIBLE);
-                        first_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkSecondL - 1] == kor[checkFirstR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            second_left.setText("이 칸의 마지막입니다.");
-                            first_right.setText("이 칸의 마지막입니다.");
-                            second_left.setVisibility(View.VISIBLE);
-                            first_right.setVisibility(View.VISIBLE);
-                            second_left.setEnabled(false);
-                            first_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFirstL - 1] == kor[checkFifthR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        first_left.setText("이 칸의 마지막입니다.");
+                        fifth_right.setText("이 칸의 마지막입니다.");
+                        first_left.setVisibility(View.VISIBLE);
+                        fifth_right.setVisibility(View.VISIBLE);
+                        first_left.setEnabled(false);
+                        fifth_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                first_left.setVisibility(View.VISIBLE);
+                fifth_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (second_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkSecondL - 1] == kor[checkFirstR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setSecondL();
+                    setFirstR();
                     second_left.setVisibility(View.VISIBLE);
                     first_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (second_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkSecondL - 1] == kor[checkSecondR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setSecondL();
-                        setSecondR();
-                        second_left.setVisibility(View.VISIBLE);
-                        second_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkSecondL - 1] == kor[checkSecondR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            second_left.setText("이 칸의 마지막입니다.");
-                            second_right.setText("이 칸의 마지막입니다.");
-                            second_left.setVisibility(View.VISIBLE);
-                            second_right.setVisibility(View.VISIBLE);
-                            second_left.setEnabled(false);
-                            second_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkSecondL - 1] == kor[checkFirstR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        second_left.setText("이 칸의 마지막입니다.");
+                        first_right.setText("이 칸의 마지막입니다.");
+                        second_left.setVisibility(View.VISIBLE);
+                        first_right.setVisibility(View.VISIBLE);
+                        second_left.setEnabled(false);
+                        first_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                second_left.setVisibility(View.VISIBLE);
+                first_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (second_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkSecondL - 1] == kor[checkSecondR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setSecondL();
+                    setSecondR();
                     second_left.setVisibility(View.VISIBLE);
                     second_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (second_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkSecondL - 1] == kor[checkThirdR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setSecondL();
-                        setThirdR();
-                        second_left.setVisibility(View.VISIBLE);
-                        third_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkSecondL - 1] == kor[checkThirdR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            second_left.setText("이 칸의 마지막입니다.");
-                            third_right.setText("이 칸의 마지막입니다.");
-                            second_left.setVisibility(View.VISIBLE);
-                            third_right.setVisibility(View.VISIBLE);
-                            second_left.setEnabled(false);
-                            third_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkSecondL - 1] == kor[checkSecondR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        second_left.setText("이 칸의 마지막입니다.");
+                        second_right.setText("이 칸의 마지막입니다.");
+                        second_left.setVisibility(View.VISIBLE);
+                        second_right.setVisibility(View.VISIBLE);
+                        second_left.setEnabled(false);
+                        second_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                second_left.setVisibility(View.VISIBLE);
+                second_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (second_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkSecondL - 1] == kor[checkThirdR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setSecondL();
+                    setThirdR();
                     second_left.setVisibility(View.VISIBLE);
                     third_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (second_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkSecondL - 1] == kor[checkFourthR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setSecondL();
-                        setFourthR();
-                        second_left.setVisibility(View.VISIBLE);
-                        fourth_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkSecondL - 1] == kor[checkFourthR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            second_left.setText("이 칸의 마지막입니다.");
-                            fourth_right.setText("이 칸의 마지막입니다.");
-                            second_left.setVisibility(View.VISIBLE);
-                            fourth_right.setVisibility(View.VISIBLE);
-                            second_left.setEnabled(false);
-                            fourth_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkSecondL - 1] == kor[checkThirdR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        second_left.setText("이 칸의 마지막입니다.");
+                        third_right.setText("이 칸의 마지막입니다.");
+                        second_left.setVisibility(View.VISIBLE);
+                        third_right.setVisibility(View.VISIBLE);
+                        second_left.setEnabled(false);
+                        third_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                second_left.setVisibility(View.VISIBLE);
+                third_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (second_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkSecondL - 1] == kor[checkFourthR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setSecondL();
+                    setFourthR();
                     second_left.setVisibility(View.VISIBLE);
                     fourth_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (second_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkSecondL - 1] == kor[checkFifthR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setSecondL();
-                        setFifthR();
-                        second_left.setVisibility(View.VISIBLE);
-                        fifth_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkSecondL - 1] == kor[checkFifthR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            second_left.setText("이 칸의 마지막입니다.");
-                            fifth_right.setText("이 칸의 마지막입니다.");
-                            second_left.setVisibility(View.VISIBLE);
-                            fifth_right.setVisibility(View.VISIBLE);
-                            second_left.setEnabled(false);
-                            fifth_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkSecondL - 1] == kor[checkFourthR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        second_left.setText("이 칸의 마지막입니다.");
+                        fourth_right.setText("이 칸의 마지막입니다.");
+                        second_left.setVisibility(View.VISIBLE);
+                        fourth_right.setVisibility(View.VISIBLE);
+                        second_left.setEnabled(false);
+                        fourth_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                second_left.setVisibility(View.VISIBLE);
+                fourth_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (second_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkSecondL - 1] == kor[checkFifthR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setSecondL();
+                    setFifthR();
                     second_left.setVisibility(View.VISIBLE);
                     fifth_right.setVisibility(View.VISIBLE);
-                }
-            }
-
-            if (third_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkThirdL - 1] == kor[checkFirstR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setThirdL();
-                        setFirstR();
-                        third_left.setVisibility(View.VISIBLE);
-                        first_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkThirdL - 1] == kor[checkFirstR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            third_left.setText("이 칸의 마지막입니다.");
-                            first_right.setText("이 칸의 마지막입니다.");
-                            third_left.setVisibility(View.VISIBLE);
-                            first_right.setVisibility(View.VISIBLE);
-                            third_left.setEnabled(false);
-                            first_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkSecondL - 1] == kor[checkFifthR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        second_left.setText("이 칸의 마지막입니다.");
+                        fifth_right.setText("이 칸의 마지막입니다.");
+                        second_left.setVisibility(View.VISIBLE);
+                        fifth_right.setVisibility(View.VISIBLE);
+                        second_left.setEnabled(false);
+                        fifth_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                second_left.setVisibility(View.VISIBLE);
+                fifth_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (third_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkThirdL - 1] == kor[checkFirstR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setThirdL();
+                    setFirstR();
                     third_left.setVisibility(View.VISIBLE);
                     first_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (third_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkThirdL - 1] == kor[checkSecondR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setThirdL();
-                        setSecondR();
-                        third_left.setVisibility(View.VISIBLE);
-                        second_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkThirdL - 1] == kor[checkSecondR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            third_left.setText("이 칸의 마지막입니다.");
-                            second_right.setText("이 칸의 마지막입니다.");
-                            third_left.setVisibility(View.VISIBLE);
-                            second_right.setVisibility(View.VISIBLE);
-                            third_left.setEnabled(false);
-                            second_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkThirdL - 1] == kor[checkFirstR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        third_left.setText("이 칸의 마지막입니다.");
+                        first_right.setText("이 칸의 마지막입니다.");
+                        third_left.setVisibility(View.VISIBLE);
+                        first_right.setVisibility(View.VISIBLE);
+                        third_left.setEnabled(false);
+                        first_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                third_left.setVisibility(View.VISIBLE);
+                first_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (third_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkThirdL - 1] == kor[checkSecondR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setThirdL();
+                    setSecondR();
                     third_left.setVisibility(View.VISIBLE);
                     second_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (third_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkThirdL - 1] == kor[checkThirdR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setThirdL();
-                        setThirdR();
-                        third_left.setVisibility(View.VISIBLE);
-                        third_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkThirdL - 1] == kor[checkThirdR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            third_left.setText("이 칸의 마지막입니다.");
-                            third_right.setText("이 칸의 마지막입니다.");
-                            third_left.setVisibility(View.VISIBLE);
-                            third_right.setVisibility(View.VISIBLE);
-                            third_left.setEnabled(false);
-                            third_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkThirdL - 1] == kor[checkSecondR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        third_left.setText("이 칸의 마지막입니다.");
+                        second_right.setText("이 칸의 마지막입니다.");
+                        third_left.setVisibility(View.VISIBLE);
+                        second_right.setVisibility(View.VISIBLE);
+                        third_left.setEnabled(false);
+                        second_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                third_left.setVisibility(View.VISIBLE);
+                second_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (third_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkThirdL - 1] == kor[checkThirdR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setThirdL();
+                    setThirdR();
                     third_left.setVisibility(View.VISIBLE);
                     third_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (third_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkThirdL - 1] == kor[checkFourthR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setThirdL();
-                        setFourthR();
-                        third_left.setVisibility(View.VISIBLE);
-                        fourth_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkThirdL - 1] == kor[checkFourthR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            third_left.setText("이 칸의 마지막입니다.");
-                            fourth_right.setText("이 칸의 마지막입니다.");
-                            third_left.setVisibility(View.VISIBLE);
-                            fourth_right.setVisibility(View.VISIBLE);
-                            third_left.setEnabled(false);
-                            fourth_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkThirdL - 1] == kor[checkThirdR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        third_left.setText("이 칸의 마지막입니다.");
+                        third_right.setText("이 칸의 마지막입니다.");
+                        third_left.setVisibility(View.VISIBLE);
+                        third_right.setVisibility(View.VISIBLE);
+                        third_left.setEnabled(false);
+                        third_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                third_left.setVisibility(View.VISIBLE);
+                third_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (third_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkThirdL - 1] == kor[checkFourthR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setThirdL();
+                    setFourthR();
                     third_left.setVisibility(View.VISIBLE);
                     fourth_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (third_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkThirdL - 1] == kor[checkFifthR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setThirdL();
-                        setFifthR();
-                        third_left.setVisibility(View.VISIBLE);
-                        fifth_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkThirdL - 1] == kor[checkFifthR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            third_left.setText("이 칸의 마지막입니다.");
-                            fifth_right.setText("이 칸의 마지막입니다.");
-                            third_left.setVisibility(View.VISIBLE);
-                            fifth_right.setVisibility(View.VISIBLE);
-                            third_left.setEnabled(false);
-                            fifth_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkThirdL - 1] == kor[checkFourthR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        third_left.setText("이 칸의 마지막입니다.");
+                        fourth_right.setText("이 칸의 마지막입니다.");
+                        third_left.setVisibility(View.VISIBLE);
+                        fourth_right.setVisibility(View.VISIBLE);
+                        third_left.setEnabled(false);
+                        fourth_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                third_left.setVisibility(View.VISIBLE);
+                fourth_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (third_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkThirdL - 1] == kor[checkFifthR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setThirdL();
+                    setFifthR();
                     third_left.setVisibility(View.VISIBLE);
                     fifth_right.setVisibility(View.VISIBLE);
-                }
-            }
-
-            if (fourth_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFourthL - 1] == kor[checkFirstR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFourthL();
-                        setFirstR();
-                        fourth_left.setVisibility(View.VISIBLE);
-                        first_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFourthL - 1] == kor[checkFirstR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            fourth_left.setText("이 칸의 마지막입니다.");
-                            first_right.setText("이 칸의 마지막입니다.");
-                            fourth_left.setVisibility(View.VISIBLE);
-                            first_right.setVisibility(View.VISIBLE);
-                            fourth_left.setEnabled(false);
-                            first_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkThirdL - 1] == kor[checkFifthR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        third_left.setText("이 칸의 마지막입니다.");
+                        fifth_right.setText("이 칸의 마지막입니다.");
+                        third_left.setVisibility(View.VISIBLE);
+                        fifth_right.setVisibility(View.VISIBLE);
+                        third_left.setEnabled(false);
+                        fifth_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                third_left.setVisibility(View.VISIBLE);
+                fifth_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (fourth_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFourthL - 1] == kor[checkFirstR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFourthL();
+                    setFirstR();
                     fourth_left.setVisibility(View.VISIBLE);
                     first_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (fourth_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFourthL - 1] == kor[checkSecondR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFourthL();
-                        setSecondR();
-                        fourth_left.setVisibility(View.VISIBLE);
-                        second_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFourthL - 1] == kor[checkSecondR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            fourth_left.setText("이 칸의 마지막입니다.");
-                            second_right.setText("이 칸의 마지막입니다.");
-                            fourth_left.setVisibility(View.VISIBLE);
-                            second_right.setVisibility(View.VISIBLE);
-                            fourth_left.setEnabled(false);
-                            second_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFourthL - 1] == kor[checkFirstR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        fourth_left.setText("이 칸의 마지막입니다.");
+                        first_right.setText("이 칸의 마지막입니다.");
+                        fourth_left.setVisibility(View.VISIBLE);
+                        first_right.setVisibility(View.VISIBLE);
+                        fourth_left.setEnabled(false);
+                        first_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                fourth_left.setVisibility(View.VISIBLE);
+                first_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (fourth_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFourthL - 1] == kor[checkSecondR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFourthL();
+                    setSecondR();
                     fourth_left.setVisibility(View.VISIBLE);
                     second_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (fourth_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFourthL - 1] == kor[checkThirdR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFourthL();
-                        setThirdR();
-                        fourth_left.setVisibility(View.VISIBLE);
-                        third_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFourthL - 1] == kor[checkThirdR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            fourth_left.setText("이 칸의 마지막입니다.");
-                            third_right.setText("이 칸의 마지막입니다.");
-                            fourth_left.setVisibility(View.VISIBLE);
-                            third_right.setVisibility(View.VISIBLE);
-                            fourth_left.setEnabled(false);
-                            third_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFourthL - 1] == kor[checkSecondR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        fourth_left.setText("이 칸의 마지막입니다.");
+                        second_right.setText("이 칸의 마지막입니다.");
+                        fourth_left.setVisibility(View.VISIBLE);
+                        second_right.setVisibility(View.VISIBLE);
+                        fourth_left.setEnabled(false);
+                        second_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                fourth_left.setVisibility(View.VISIBLE);
+                second_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (fourth_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFourthL - 1] == kor[checkThirdR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFourthL();
+                    setThirdR();
                     fourth_left.setVisibility(View.VISIBLE);
                     third_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (fourth_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFourthL - 1] == kor[checkFourthR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFourthL();
-                        setFourthR();
-                        fourth_left.setVisibility(View.VISIBLE);
-                        fourth_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFourthL - 1] == kor[checkFourthR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            fourth_left.setText("이 칸의 마지막입니다.");
-                            fourth_right.setText("이 칸의 마지막입니다.");
-                            fourth_left.setVisibility(View.VISIBLE);
-                            fourth_right.setVisibility(View.VISIBLE);
-                            fourth_left.setEnabled(false);
-                            fourth_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFourthL - 1] == kor[checkThirdR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        fourth_left.setText("이 칸의 마지막입니다.");
+                        third_right.setText("이 칸의 마지막입니다.");
+                        fourth_left.setVisibility(View.VISIBLE);
+                        third_right.setVisibility(View.VISIBLE);
+                        fourth_left.setEnabled(false);
+                        third_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                fourth_left.setVisibility(View.VISIBLE);
+                third_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (fourth_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFourthL - 1] == kor[checkFourthR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFourthL();
+                    setFourthR();
                     fourth_left.setVisibility(View.VISIBLE);
                     fourth_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (fourth_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFourthL - 1] == kor[checkFifthR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFourthL();
-                        setFifthR();
-                        fourth_left.setVisibility(View.VISIBLE);
-                        fifth_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFourthL - 1] == kor[checkFifthR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            fourth_left.setText("이 칸의 마지막입니다.");
-                            fifth_right.setText("이 칸의 마지막입니다.");
-                            fourth_left.setVisibility(View.VISIBLE);
-                            fifth_right.setVisibility(View.VISIBLE);
-                            fourth_left.setEnabled(false);
-                            fifth_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFourthL - 1] == kor[checkFourthR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        fourth_left.setText("이 칸의 마지막입니다.");
+                        fourth_right.setText("이 칸의 마지막입니다.");
+                        fourth_left.setVisibility(View.VISIBLE);
+                        fourth_right.setVisibility(View.VISIBLE);
+                        fourth_left.setEnabled(false);
+                        fourth_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                fourth_left.setVisibility(View.VISIBLE);
+                fourth_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (fourth_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFourthL - 1] == kor[checkFifthR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFourthL();
+                    setFifthR();
                     fourth_left.setVisibility(View.VISIBLE);
                     fifth_right.setVisibility(View.VISIBLE);
-                }
-            }
-
-            if (fifth_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFifthL - 1] == kor[checkFirstR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFifthL();
-                        setFirstR();
-                        fifth_left.setVisibility(View.VISIBLE);
-                        first_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFifthL - 1] == kor[checkFirstR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            fifth_left.setText("이 칸의 마지막입니다.");
-                            first_right.setText("이 칸의 마지막입니다.");
-                            fifth_left.setVisibility(View.VISIBLE);
-                            first_right.setVisibility(View.VISIBLE);
-                            fifth_left.setEnabled(false);
-                            first_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFourthL - 1] == kor[checkFifthR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        fourth_left.setText("이 칸의 마지막입니다.");
+                        fifth_right.setText("이 칸의 마지막입니다.");
+                        fourth_left.setVisibility(View.VISIBLE);
+                        fifth_right.setVisibility(View.VISIBLE);
+                        fourth_left.setEnabled(false);
+                        fifth_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                fourth_left.setVisibility(View.VISIBLE);
+                fifth_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (fifth_left.getVisibility() == View.INVISIBLE && first_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFifthL - 1] == kor[checkFirstR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFifthL();
+                    setFirstR();
                     fifth_left.setVisibility(View.VISIBLE);
                     first_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (fifth_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFifthL - 1] == kor[checkSecondR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFifthL();
-                        setSecondR();
-                        fifth_left.setVisibility(View.VISIBLE);
-                        second_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFifthL - 1] == kor[checkSecondR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            fifth_left.setText("이 칸의 마지막입니다.");
-                            second_right.setText("이 칸의 마지막입니다.");
-                            fifth_left.setVisibility(View.VISIBLE);
-                            second_right.setVisibility(View.VISIBLE);
-                            fifth_left.setEnabled(false);
-                            second_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFifthL - 1] == kor[checkFirstR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        fifth_left.setText("이 칸의 마지막입니다.");
+                        first_right.setText("이 칸의 마지막입니다.");
+                        fifth_left.setVisibility(View.VISIBLE);
+                        first_right.setVisibility(View.VISIBLE);
+                        fifth_left.setEnabled(false);
+                        first_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                fifth_left.setVisibility(View.VISIBLE);
+                first_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (fifth_left.getVisibility() == View.INVISIBLE && second_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFifthL - 1] == kor[checkSecondR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFifthL();
+                    setSecondR();
                     fifth_left.setVisibility(View.VISIBLE);
                     second_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (fifth_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFifthL - 1] == kor[checkThirdR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFifthL();
-                        setThirdR();
-                        fifth_left.setVisibility(View.VISIBLE);
-                        third_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFifthL - 1] == kor[checkThirdR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            fifth_left.setText("이 칸의 마지막입니다.");
-                            third_right.setText("이 칸의 마지막입니다.");
-                            fifth_left.setVisibility(View.VISIBLE);
-                            third_right.setVisibility(View.VISIBLE);
-                            fifth_left.setEnabled(false);
-                            third_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFifthL - 1] == kor[checkSecondR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        fifth_left.setText("이 칸의 마지막입니다.");
+                        second_right.setText("이 칸의 마지막입니다.");
+                        fifth_left.setVisibility(View.VISIBLE);
+                        second_right.setVisibility(View.VISIBLE);
+                        fifth_left.setEnabled(false);
+                        second_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                fifth_left.setVisibility(View.VISIBLE);
+                second_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (fifth_left.getVisibility() == View.INVISIBLE && third_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFifthL - 1] == kor[checkThirdR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFifthL();
+                    setThirdR();
                     fifth_left.setVisibility(View.VISIBLE);
                     third_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (fifth_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFifthL - 1] == kor[checkFourthR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFifthL();
-                        setFourthR();
-                        fifth_left.setVisibility(View.VISIBLE);
-                        fourth_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFifthL - 1] == kor[checkFourthR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            fifth_left.setText("이 칸의 마지막입니다.");
-                            fourth_right.setText("이 칸의 마지막입니다.");
-                            fifth_left.setVisibility(View.VISIBLE);
-                            fourth_right.setVisibility(View.VISIBLE);
-                            fifth_left.setEnabled(false);
-                            fourth_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFifthL - 1] == kor[checkThirdR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        fifth_left.setText("이 칸의 마지막입니다.");
+                        third_right.setText("이 칸의 마지막입니다.");
+                        fifth_left.setVisibility(View.VISIBLE);
+                        third_right.setVisibility(View.VISIBLE);
+                        fifth_left.setEnabled(false);
+                        third_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                fifth_left.setVisibility(View.VISIBLE);
+                third_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (fifth_left.getVisibility() == View.INVISIBLE && fourth_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFifthL - 1] == kor[checkFourthR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFifthL();
+                    setFourthR();
                     fifth_left.setVisibility(View.VISIBLE);
                     fourth_right.setVisibility(View.VISIBLE);
-                }
-            }
-            if (fifth_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
-                if (eng[checkFifthL - 1] == kor[checkFifthR - 1]) {
-                    MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                    if (engCurrent != 20) {
-                        setFifthL();
-                        setFifthR();
-                        fifth_left.setVisibility(View.VISIBLE);
-                        fifth_right.setVisibility(View.VISIBLE);
-                    } else {
-                        if (eng[checkFifthL - 1] == kor[checkFifthR - 1]) {
-                            MySoundPlayer.play(MySoundPlayer.SUCCESS);
-                            fifth_left.setText("이 칸의 마지막입니다.");
-                            fifth_right.setText("이 칸의 마지막입니다.");
-                            fifth_left.setVisibility(View.VISIBLE);
-                            fifth_right.setVisibility(View.VISIBLE);
-                            fifth_left.setEnabled(false);
-                            fifth_right.setEnabled(false);
-                        }
-                    }
                 } else {
-                    MySoundPlayer.play(MySoundPlayer.FAIL);
+                    if (eng[checkFifthL - 1] == kor[checkFourthR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        fifth_left.setText("이 칸의 마지막입니다.");
+                        fourth_right.setText("이 칸의 마지막입니다.");
+                        fifth_left.setVisibility(View.VISIBLE);
+                        fourth_right.setVisibility(View.VISIBLE);
+                        fifth_left.setEnabled(false);
+                        fourth_right.setEnabled(false);
+                    }
+                }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                fifth_left.setVisibility(View.VISIBLE);
+                fourth_right.setVisibility(View.VISIBLE);
+            }
+        }
+        if (fifth_left.getVisibility() == View.INVISIBLE && fifth_right.getVisibility() == View.INVISIBLE) {
+            if (eng[checkFifthL - 1] == kor[checkFifthR - 1]) {
+                MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                if (engCurrent != 20) {
+                    setFifthL();
+                    setFifthR();
                     fifth_left.setVisibility(View.VISIBLE);
                     fifth_right.setVisibility(View.VISIBLE);
+                } else {
+                    if (eng[checkFifthL - 1] == kor[checkFifthR - 1]) {
+                        MySoundPlayer.play(MySoundPlayer.SUCCESS);
+                        fifth_left.setText("이 칸의 마지막입니다.");
+                        fifth_right.setText("이 칸의 마지막입니다.");
+                        fifth_left.setVisibility(View.VISIBLE);
+                        fifth_right.setVisibility(View.VISIBLE);
+                        fifth_left.setEnabled(false);
+                        fifth_right.setEnabled(false);
+                    }
                 }
+            } else {
+                MySoundPlayer.play(MySoundPlayer.FAIL);
+                fifth_left.setVisibility(View.VISIBLE);
+                fifth_right.setVisibility(View.VISIBLE);
             }
+        }
+        if (first_left.isEnabled() == false && second_left.isEnabled() == false && third_left.isEnabled() == false && fourth_left.isEnabled() == false && fifth_left.isEnabled() == false && first_right.isEnabled() == false && second_right.isEnabled() == false && third_right.isEnabled() == false && fourth_right.isEnabled() == false && fifth_right.isEnabled() == false) {
+            tableLayout.setVisibility(View.INVISIBLE);
+            success.setVisibility(View.VISIBLE);
         }
     }
 }
