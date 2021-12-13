@@ -114,8 +114,11 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
         if (id==R.id.share_btn){
-            Toast.makeText(this, "공유 버튼", Toast.LENGTH_SHORT).show();
-            return true;
+            Intent msg = new Intent(Intent.ACTION_SEND);
+            msg.addCategory(Intent.CATEGORY_DEFAULT);
+            msg.putExtra(Intent.EXTRA_TEXT, "능률보카 수능실전편 단어암기 어플 공유");
+            msg.setType("text/plain");
+            startActivity(Intent.createChooser(msg, "앱을 선택해주세요"));
         }
         else if (id==R.id.day_word_list){
             Intent intent = new Intent(this, MainActivity.class);
